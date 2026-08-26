@@ -8,8 +8,7 @@ Last reviewed against the [official rules](https://webmcp.devpost.com/rules):
 Do not paste this into Devpost until every required gate in
 [`SUBMISSION-CHECKLIST.md`](SUBMISSION-CHECKLIST.md) is green. In particular,
 the live native WebMCP journey must be captured, the final rights-safe build
-must be deployed, the clean public GroundedRelay repository must be published
-and verified, and the public narrated YouTube video must exist.
+must be deployed, and the public narrated YouTube video must exist.
 The submitted experience uses only GroundedRelay-owned fictional merchants, products,
 prices, and handoff links.
 
@@ -27,14 +26,14 @@ exact variants, basket state, and a human-gated merchant handoff.
 without surrendering control, and independent merchants that want an
 agent-ready interface without replacing their storefront or checkout.
 
-**Live app:** <https://groundedrelay.pages.dev>
+**Target production URL (deployment pending):** <https://groundedrelay.pages.dev>
 
-**Target public repository (publication pending):**
+**Public repository:**
 <https://github.com/Timtech4u/groundedrelay-webmcp>
 
-The clean final-only GroundedRelay tree still needs to be published, opened
-signed out, and verified for visible MIT detection. The existing development
-repository remains private and is not the submission repository.
+The clean final-only GroundedRelay repository is public, opens signed out, and
+shows its MIT license. Its local `main` matches `origin/main`. The existing
+development repository remains private and is not the submission repository.
 
 A preliminary screen on 2026-08-26 checked exact web results, npm, PyPI,
 GitHub repository names, and `.com`, `.dev`, `.app`, and `.io` DNS for
@@ -44,17 +43,17 @@ legal advice or trademark clearance.
 ## Build timeline and challenge eligibility
 
 GroundedRelay's source work began on 26 August 2026; the challenge build window
-opened on 25 August. Its clean, final-only public repository must still be
-created inside that window with no inherited private history, personal
-metadata, local settings, or named merchant research. Judges must be able to
-verify that public timestamp directly. The private development history is
+opened on 25 August. Its clean, final-only public repository has one commit
+inside that window and no inherited private history, personal metadata, local
+settings, or named merchant research. Judges can verify that public timestamp
+directly. The private development history is
 retained for organizer review if requested, but it is not published because it
 contains personal metadata and retired external-catalogue work.
 
 `npm run check` now passes 96/96 total checks
-(95 Node tests plus eval validation), with 8 eval cases and 9 tools. A temporary
-clean-root export passes 35/35 publication checks; final repository publication
-remains pending. GitHub Actions may be run manually as supplemental evidence,
+(95 Node tests plus eval validation), with 8 eval cases and 9 tools. The clean
+public `main` passes 35/35 publication checks and matches `origin/main`. GitHub
+Actions may be run manually as supplemental evidence,
 but the required source proof is the deterministic and publication gates.
 
 ## Required question 1 — Why is this use case a strong fit for WebMCP?

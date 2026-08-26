@@ -124,7 +124,7 @@ run passes. A screenshot is evidence only if its URL, state, and date are known.
 
 | ID | Required frame | What it proves |
 | --- | --- | --- |
-| S1 | Hero with `groundedrelay.pages.dev`, fictional-demo status, and concise thesis | Coherent public product, live URL, and rights-safe mode |
+| S1 | Hero with `groundedrelay.pages.dev`, fictional-demo status, and concise thesis | Coherent public product, submitted URL, and rights-safe mode |
 | S2 | **How it works** with `groundedrelay-provider.pages.dev` and native action cards | Cross-origin WebMCP discovery and truthful current surface |
 | S3 | Nyota EU 40 and Asa Indigo results, Rwanda delivery, KES/GHS | Exact variants and explicit demo metadata |
 | S4 | Structured cross-currency comparison with highlighted rows | Grounded, inspectable agent evidence |

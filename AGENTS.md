@@ -133,8 +133,8 @@ separate evidence gates.
 
 The current development repository must remain private: reachable history has
 local settings, personal email metadata, and retired external-catalogue work.
-The target public repository is `Timtech4u/groundedrelay-webmcp`; publication
-and signed-out verification are pending. Create or update it only from a clean
+The public repository is `Timtech4u/groundedrelay-webmcp`; public access, MIT,
+and the synchronized sanitized tree are verified. Update it only from a clean
 final-tree export with no inherited `.git`, `.local`, settings file, private
 artifact, named external merchant evidence, or private commit identifier. Use
 the intended GitHub noreply identity, rescan the tree and every new ref, and

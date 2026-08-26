@@ -15,20 +15,18 @@ Current source evidence is narrower and explicit:
 - the prior fixture candidate passed **42/42 direct native WebMCP checks** in
   the isolated compatibility runtime; the final GroundedRelay tree needs a
   fresh local run;
-- the GroundedRelay public target is
-  <https://github.com/Timtech4u/groundedrelay-webmcp>, but it has not yet been
-  created, synchronized, or verified.
+- the sanitized public repository is
+  <https://github.com/Timtech4u/groundedrelay-webmcp>; its first public
+  challenge-period commit is `cce50221b3098079b5810dda0de50438f376c650`,
+  the signed-out repository and raw README return 200, and MIT is detected.
+  Read the release SHA from the synchronized public `main` at deployment time;
+  do not assume the first commit remains HEAD.
 
-The temporary clean-root export passes **35/35 publication checks**. The private
-pre-commit release gate currently reports **33 pass and 3 fail**: two
-intentional private-history failures plus the staged tracked-file deletion.
-After that deletion is committed, two intentional private-history failures
-remain; do not predict the private pass count until it is rerun. Rerun and
-record 35/35 on the final clean GroundedRelay public export rather than carrying
-over the temporary result.
+Public `main` passes **35/35 publication checks**. Repeat the gate after any
+source update and before deploying a different public commit.
 
-Source synchronization is pending. Publish and verify the final GroundedRelay
-tree before deploying its exact SHA to the three HTTPS origins.
+Source synchronization is complete. Deploy only the verified public SHA to the
+three HTTPS origins.
 
 The next public release must expose:
 
@@ -42,9 +40,9 @@ All three projects are static. GroundedRelay adds no Worker, Pages Function,
 application server, search proxy, database, analytics beacon, model-key store,
 or payment service.
 
-The final product source still needs a clean public export. The submission is
-not ready to call live until that export is verified, all three projects are
-deployed from its exact commit, and every production gate in
+The final product source is published and verified. The submission is not ready
+to call live until all three projects are deployed from its exact commit and
+every production gate in
 [`SUBMISSION-CHECKLIST.md`](SUBMISSION-CHECKLIST.md) passes.
 
 ## Rights-safe production policy
@@ -114,8 +112,9 @@ git diff --check
 
 ### One-time rights-safe cutover
 
-The currently deployed provider predates the owned fixture. For the **first**
-rights-safe migration, use this fail-closed order from a clean, committed tree.
+The retired provider deployment predates the owned fixture. For the **first
+GroundedRelay release**, use this fail-closed order from the verified public
+commit.
 The checked-in deployment script encodes the order and checkpoints:
 
 ```bash

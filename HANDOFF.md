@@ -18,25 +18,25 @@ local test, commit, or historical deployment is the final public result.
 
 | Area | Verified state | Meaning |
 | --- | --- | --- |
-| Rights-safe candidate | Implemented locally; GroundedRelay public export and exact-tree validation are pending | Source publication and production release evidence are separate blockers |
-| Deterministic suite | `npm run check` passes **96/96 total checks**: 95 Node tests plus eval validation, with 8 eval cases and 9 public tools | Current local GroundedRelay proof; rerun after the clean public export |
-| Publication release gate | Temporary clean-root export passes **35/35**; private pre-commit tree is **33 pass, 3 fail** | After the deletion commit, 2 intentional private-history failures remain; rerun 35/35 on the final public export |
+| Rights-safe candidate | Clean final-only public `main` is published and synchronized | Source publication is complete; production release evidence remains separate |
+| Deterministic suite | Public `main` passes **96/96 total checks**: 95 Node tests plus eval validation, with 8 eval cases and 9 public tools | Current GroundedRelay source proof; repeat only if public `main` changes |
+| Publication release gate | Public `main` passes **35/35** | Sanitized one-commit tree is green; repeat after any public source update |
 | Online public-release gate | Pending the three-origin GroundedRelay deployment | Run against the exact deployed commit before submission |
 | Historical local fixture proof | **42/42** on the pre-GroundedRelay fixture candidate at 20:41 UTC | Rerun the final GroundedRelay tree; direct API proof is not model selection or production evidence |
 | Historical production WebMCP proof | 32/32 on the old pre-fixture deployment | Useful baseline only; must be replaced for submission |
 | Current public deployment | GroundedRelay targets are not deployed or verified | Retired external-catalogue work is private history, not submission production |
 | Independent public host | Source exists; target is not deployed or verified | `groundedrelay-merchant.pages.dev` is required before final proof |
-| GitHub | `Timtech4u/groundedrelay-webmcp` is the target and has not yet been created, published, or verified | Local deterministic and publication gates are required; GitHub Actions is optional/manual evidence |
+| GitHub | `Timtech4u/groundedrelay-webmcp` is public; the release checkout must keep local `main == origin/main` | Signed-out repository and raw README return 200; MIT is detected; read the current SHA from Git rather than freezing a soon-stale HEAD in this file |
 | Video/screenshots | Three historical local native states and a short evidence clip exist; public narrated YouTube video is absent | Rebranded production captures and the public video remain blockers |
 | Devpost | Copy prepared; not submitted | Do not submit until all P0 gates pass |
 
 ## Eligibility and build timeline
 
 The private source work began on 26 August 2026, after the 25 August challenge
-opening. The public repository must be a clean, final-only export—not a
-rewrite or visibility change of the private repository. Its first public commit
-must remain inside the build window and contain no private commit identifiers,
-personal metadata, local settings, or retired merchant evidence. Judges can
+opening. The public repository is a clean, final-only export—not a rewrite or
+visibility change of the private repository. Its single public commit is inside
+the build window and contains no private commit identifiers, personal metadata,
+local settings, or retired merchant evidence. Judges can
 verify the final public timestamp with:
 
 ```bash
@@ -173,10 +173,10 @@ contracts; reachable private history contains a personal email in
 contains a personal email. Deleting the file only from the current tree does
 not remove either history source.
 
-Do **not** make the development repository public as-is. Create
-`https://github.com/Timtech4u/groundedrelay-webmcp` only from a fresh,
-history-free tracked-tree archive with the intended GitHub noreply identity.
-Never add the private
+Do **not** make the development repository public as-is. The sanitized public
+`https://github.com/Timtech4u/groundedrelay-webmcp` repository was created from
+a fresh, history-free tracked-tree archive with the intended GitHub noreply
+identity. Never add the private
 repository as a remote, cherry-pick its commits, or
 copy `.git`, retired external-catalogue evidence, local settings, or private artifacts. Rescan the
 exported tree and every new reachable ref after each update.
@@ -214,7 +214,7 @@ Earlier external-catalogue work is retired private history. Its private commit
 identifiers and merchant evidence do not belong in the clean public repository,
 and an old smoke test is not proof that GroundedRelay is deployed.
 
-GroundedRelay source publication and exact-tree gates are pending. Before
+GroundedRelay source publication and exact-tree gates are complete. Before
 deployment, confirm:
 
 - the deployment artifact matches refreshed public `origin/main`;
@@ -279,30 +279,27 @@ or trademark clearance.
 
 ## Ordered next-agent plan
 
-GroundedRelay's local deterministic gate is green and a temporary clean-root
-publication export passes. The final public export, deployment, and judge runs
-remain pending. GitHub Actions may be run manually as extra evidence, but a
+GroundedRelay public source is synchronized and passes both deterministic and
+publication gates. Deployment and judge runs remain pending. GitHub Actions may
+be run manually as extra evidence, but a
 green Actions run is not a release requirement.
 
-1. Commit the staged runtime deletions, rerun the release gate, create the clean
-   public repository, push the final-only tree, and verify its deterministic
-   and zero-failure public release gates signed out with MIT detected.
-2. Complete the pending four-scope Cloudflare OAuth authorization in the Codex
+1. Complete the pending four-scope Cloudflare OAuth authorization in the Codex
    browser when the user explicitly approves it.
-3. Verify Cloudflare identity, all three Pages projects and URLs, and auth-wall
+2. Verify Cloudflare identity, all three Pages projects and URLs, and auth-wall
    settings.
-4. Perform the one-time storefront → provider → merchant cutover and signed-out
+3. Perform the one-time storefront → provider → merchant cutover and signed-out
    three-origin smoke test.
-5. Rerun the 42-check direct native probe locally and against production, then
+4. Rerun the 42-check direct native probe locally and against production, then
    save both commit-bound results.
-6. Run the exact model-selected fictional journey; keep it separate from direct
+5. Run the exact model-selected fictional journey; keep it separate from direct
    API evidence.
-7. Capture production S1–S8, record the <3-minute audio demo, upload it publicly, and test
+6. Capture production S1–S8, record the <3-minute audio demo, upload it publicly, and test
    every URL signed out.
-8. Record the preliminary GroundedRelay collision screen, complete the remaining
+7. Record the preliminary GroundedRelay collision screen, complete the remaining
    platform-terms review, and finish the P0 checklist; do not represent the
    name search as legal or trademark clearance.
-9. Only then paste the prepared copy into Devpost, preview it, submit, and save
+8. Only then paste the prepared copy into Devpost, preview it, submit, and save
     confirmation evidence.
 
 If any P0 gate is red, the truthful answer is **not ready to submit yet**.

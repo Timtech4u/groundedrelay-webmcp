@@ -19,8 +19,8 @@ Do not change a status to PASS without recording evidence. Any P0 failure means
 | Priority | Gate | Current state | Required evidence |
 | --- | --- | --- | --- |
 | P0 | Entrant registered and eligible | PASS — acceptance email reported | Saved acceptance email; entrant/team names match Devpost |
-| P0 | Public source repository | **PENDING — target not created or synchronized** | Signed-out browser opens the final-only source and instructions |
-| P0 | Detectable open-source license | **PENDING** | GitHub repository header/About visibly shows MIT while signed out |
+| P0 | Public source repository | **PASS — one-commit sanitized public `main` is synchronized** | Signed-out browser and raw README return 200 |
+| P0 | Detectable open-source license | **PASS — MIT detected** | GitHub repository header visibly shows MIT while signed out |
 | P0 | Rights-safe working live app, free during judging | **NOT DEPLOYED** | Signed-out production shows only the GroundedRelay-owned fictional fixture |
 | P0 | Native WebMCP runtime on submitted URL | HISTORICAL LOCAL FIXTURE PROOF 42/42; **FINAL LOCAL AND PRODUCTION RERUNS REQUIRED** | Exact-deployed-commit capture of `modelContext`, discovery, execution, and UI |
 | P0 | Model-selected public journey | **UNVERIFIED** | Latest ChatGPT desktop records the exact GPT-5.6 Sol or Terra model completing the demo sequence without manual substitution |
@@ -30,26 +30,23 @@ Do not change a status to PASS without recording evidence. Any P0 failure means
 | P0 | Devpost submission completed before cutoff | NOT STARTED / unverified | Confirmation page and saved submission URL |
 | P1 | Screenshots prove product and WebMCP | LOCAL TECHNICAL ARTIFACTS EXIST; **PRODUCTION S1–S8 MISSING** | Approved S1–S8 capture set from `docs/DEMO-SCRIPT.md` |
 | P1 | Production matches source commit | **PENDING** | Deployment commit recorded and matched to public repository HEAD |
-| P1 | Deterministic suite | **LOCAL PASS — 96/96 total checks: 95 Node tests plus eval validation; 8 evals, 9 tools** | Repeat and save `npm run check` output from the final clean public tree |
-| P1 | Public-release source policy | **TEMPORARY CLEAN-ROOT PASS — 35/35; FINAL EXPORT RERUN PENDING** | Saved final-export result has 35 pass, 0 warning, 0 failure |
+| P1 | Deterministic suite | **PUBLIC MAIN PASS — 96/96 total checks: 95 Node tests plus eval validation; 8 evals, 9 tools** | Saved `npm run check` output from the synchronized public tree |
+| P1 | Public-release source policy | **PASS — 35/35 ON PUBLIC MAIN** | Saved result has 35 pass, 0 warning, 0 failure |
 | P1 | GitHub Actions | **OPTIONAL / MANUAL** | If run, save the result as supplemental evidence; do not block submission on Actions when local deterministic and publication gates are green |
 | P1 | Documentation/runtime action contract agrees | VERIFY FINAL | AGENTS, README, evals, runtime, activity count and submission copy use one truthful contract |
 
-The target clean public repository is
-<https://github.com/Timtech4u/groundedrelay-webmcp>. It has not yet been created,
-synchronized, or verified. The development repository remains private because
+The clean public repository is
+<https://github.com/Timtech4u/groundedrelay-webmcp>. It is public, synchronized,
+and verified signed out; its raw README returns 200 and GitHub detects MIT. The
+development repository remains private because
 its reachable history includes personal email metadata, local settings, and
 named merchant research. Do not change its visibility. Every public update
 must come from a clean rights-safe tree; an authenticated push by itself is not
 public-access evidence.
 
-The temporary clean-root export passes 35/35 publication checks. The current
-private release gate is 33 pass and 3 fail before committing the staged
-tracked-file deletion: two failures are the intentional private-history guards
-and one is the not-yet-committed deletion. After that commit, two intentional
-private-history failures remain; do not predict the private pass count until it
-is rerun. Rerun the final clean GroundedRelay public export and record 35/35 rather than treating the
-temporary export as final.
+Public `main` passes 96/96 deterministic checks and 35/35 publication checks;
+local public `main` matches `origin/main`. Repeat both gates after any source
+update. GitHub Actions remains optional/manual supplemental evidence.
 
 ## P0 — eligibility, ownership, and rights
 
@@ -58,14 +55,15 @@ temporary export as final.
 - [ ] No second submission violates the one-submission rule.
 - [x] The submission says source work began on 26 August 2026, inside the
       25 August–3 September build window.
-- [ ] Create the GroundedRelay public repository's first clean commit inside
-      the build window and record its new public SHA. Do not cite private
+- [x] The GroundedRelay public repository's first clean commit was created
+      inside the build window. That first-commit evidence SHA is
+      `cce50221b3098079b5810dda0de50438f376c650`. Do not cite private
       commit hashes.
 - [ ] Retain the private development history for organizer review if requested;
       do not publish it or expose its personal metadata/private research.
 - [ ] All submitted code, copy, screenshots, voice, and visual assets are owned
       or licensed for this use.
-- [ ] Published GroundedRelay source uses the owned fixture with fictional merchant names,
+- [x] Published GroundedRelay source uses the owned fixture with fictional merchant names,
       products, descriptions, variants, prices, and demo links; it includes no
       copied merchant imagery or customer data.
 - [x] Exact web, npm, PyPI, GitHub repository-name, and
@@ -89,34 +87,34 @@ temporary export as final.
 
 - [x] Keep the current development repository private. Do not rewrite it or
       change its visibility for submission.
-- [ ] Export the final GroundedRelay tracked tree into a fresh directory without `.git`,
+- [x] Export the final GroundedRelay tracked tree into a fresh directory without `.git`,
       `.local`, ignored research artifacts, `.claude/settings.local.json`,
       private correspondence, generated captures, or local machine paths.
-- [ ] Confirm the export contains only the GroundedRelay-owned fictional fixture;
+- [x] Confirm the export contains only the GroundedRelay-owned fictional fixture;
       it contains no named external merchant,
       domain, product, response, screenshot, or outreach record.
-- [ ] Create `Timtech4u/groundedrelay-webmcp` as an empty remote without generated
+- [x] Create `Timtech4u/groundedrelay-webmcp` as an empty remote without generated
       starter files. Only after the remote exists, update the export's
       `package.json` repository metadata to that URL.
-- [ ] Initialize the export with one new challenge-period commit using the
+- [x] Initialize the export with one new challenge-period commit using the
       intended GitHub noreply author and committer email, then push it. Record
       the new public SHA only after verification.
-- [ ] Rescan the synchronized public repository working tree and every reachable ref for
+- [x] Rescan the synchronized public repository working tree and every reachable ref for
       secrets, personal email, local settings, private paths, credentials, and
       named external merchant evidence.
-- [ ] Repository visibility is Public.
-- [ ] Signed-out GitHub opens
+- [x] Repository visibility is Public.
+- [x] Signed-out GitHub opens
       <https://github.com/Timtech4u/groundedrelay-webmcp> without a 404 or login.
 - [ ] Repository About/homepage links to <https://groundedrelay.pages.dev>.
-- [ ] GitHub detects **MIT** at the top of the repository page.
-- [ ] `LICENSE`, source, static assets, deployment files, tests, and run
+- [x] GitHub detects **MIT** at the top of the repository page.
+- [x] `LICENSE`, source, static assets, deployment files, tests, and run
       instructions are all included.
-- [ ] README in the published tree contains a recognizable real
+- [x] README in the published tree contains a recognizable real
       `document.modelContext.registerTool({ ... })` example and links to the
       exact implementation.
-- [ ] README's clean local command works from a fresh clone. The production URL
+- [x] README's clean local command works from the synchronized public tree. The production URL
       still requires the exact-SHA rights-safe deployment smoke.
-- [ ] The synchronized public snapshot contains no secrets, tokens, private
+- [x] The synchronized public snapshot contains no secrets, tokens, private
       correspondence, personal details, or generated browser profiles in its
       repository or Git history.
 - [ ] The final public `main` SHA equals the commit deployed to all three origins.

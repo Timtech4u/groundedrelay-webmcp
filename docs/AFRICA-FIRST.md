@@ -28,9 +28,8 @@ runtime. The tracked runtime is fixture-only.
 
 The submission product is **GroundedRelay**. Production uses
 `groundedrelay.pages.dev`, `groundedrelay-provider.pages.dev`, and
-`groundedrelay-merchant.pages.dev`; the target public repository is
-`Timtech4u/groundedrelay-webmcp`, with publication and signed-out verification
-still pending.
+`groundedrelay-merchant.pages.dev`; the verified public repository is
+`Timtech4u/groundedrelay-webmcp`. The Pages targets are not yet deployed.
 
 Exact web, npm, PyPI, GitHub repository-name, and
 `.com`/`.dev`/`.app`/`.io` DNS screens on 2026-08-26 found no direct

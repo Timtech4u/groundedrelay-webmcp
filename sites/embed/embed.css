@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  padding: 10px;
+  background: #f6f8fa;
+  color: #1f2328;
+  font: 13px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.ok { color: #1a7f37; }
+.bad { color: #cf222e; }
+.dim { color: #59636e; }

@@ -1,0 +1,12 @@
+{
+  "name": "GroundedRelay — evidence-led agent shopping",
+  "short_name": "GroundedRelay",
+  "description": "Search and compare fictional African catalogues with cross-origin WebMCP tools and a human-controlled handoff.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1f2328",
+  "icons": [
+    { "src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neighbourhood Market — GroundedRelay provider portability demo</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header>
+    <a class="brand" href="./">Neighbourhood Market <small>fictional</small></a>
+    <span id="tool-status" role="status">Connecting to provider…</span>
+  </header>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Independent host proof · GroundedRelay-owned judge sandbox</p>
+      <h1>One provider.<br>Another storefront.</h1>
+      <p>This page implements no shopping actions. A static provider on another
+         origin lends them through WebMCP and keeps every result visible here.</p>
+      <div class="notice"><strong>Fictional demo data.</strong> Every merchant,
+        product, variant and price on this page was created by GroundedRelay. Nothing
+        shown here is a real offer or endorsement.</div>
+      <div id="handoff-ack" class="notice" hidden role="status" aria-live="polite"></div>
+    </section>
+
+    <form id="search-form" class="search" role="search">
+      <label for="query">What should this fictional market find?</label>
+      <div><input id="query" type="search"
+                  placeholder="Try fictional eggs, running shoes, or bags"
+                  autocomplete="off" disabled>
+        <button type="submit" disabled>Search</button></div>
+    </form>
+
+    <div class="layout">
+      <section aria-labelledby="results-title">
+        <div class="section-head"><h2 id="results-title">Catalogue</h2>
+          <button id="compare" type="button" disabled>Compare selected</button></div>
+        <p id="result-status" role="status">Waiting for the provider.</p>
+        <div id="comparison" class="comparison" hidden role="region"
+             aria-live="polite" aria-atomic="false"
+             aria-labelledby="comparison-title"></div>
+        <div id="products" class="products"></div>
+      </section>
+      <aside id="basket-panel" tabindex="-1" aria-labelledby="basket-title">
+        <p class="eyebrow">Shared provider state</p>
+        <h2 id="basket-title">Basket</h2>
+        <p id="basket-status" class="fine" role="status" aria-live="polite"
+           aria-atomic="true"></p>
+        <div id="basket"><p>Nothing selected yet.</p></div>
+        <button id="review" class="primary" type="button" disabled>Review handoff</button>
+        <p class="fine">Approval only reveals GroundedRelay-owned demo links. It never purchases or navigates.</p>
+      </aside>
+    </div>
+
+    <button id="basket-jump" class="basket-jump" type="button" hidden
+            aria-controls="basket-panel">View basket</button>
+
+    <details>
+      <summary>Cross-origin integration proof</summary>
+      <p id="provider-copy">Waiting for the provider handshake.</p>
+      <ol id="tools"></ol>
+      <iframe id="provider" data-origin="https://groundedrelay-provider.pages.dev"
+              allow="tools" title="GroundedRelay provider diagnostics"></iframe>
+    </details>
+  </main>
+
+  <div id="approval" class="modal" hidden role="dialog" aria-modal="true"
+       aria-labelledby="approval-title" aria-describedby="approval-note">
+    <div class="modal-card">
+      <p class="eyebrow">Human decision required</p>
+      <h2 id="approval-title">Reveal the fictional merchant links?</h2>
+      <div id="approval-items"></div>
+      <p id="approval-note">No payment or order can happen in this sandbox.</p>
+      <p id="approval-status" role="status" aria-live="assertive"></p>
+      <div class="actions"><button id="veto" type="button">No, cancel</button>
+        <button id="approve" class="primary" type="button">Yes, reveal links</button></div>
+    </div>
+  </div>
+  <div id="handoff" class="modal" hidden role="dialog" aria-modal="true"
+       aria-labelledby="handoff-title" aria-describedby="handoff-note">
+    <div class="modal-card">
+      <p class="eyebrow">Automation stopped</p>
+      <h2 id="handoff-title">Demo links are ready</h2>
+      <div id="handoff-links"></div>
+      <p id="handoff-note">These links are GroundedRelay-owned fictional demos. No order or payment was created, and nothing opened automatically.</p>
+      <button id="close-handoff" type="button">Done</button>
+    </div>
+  </div>
+  <script type="module" src="./client.js"></script>
+</body>
+</html>

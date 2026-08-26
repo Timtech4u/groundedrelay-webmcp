@@ -204,7 +204,11 @@ All three projects are static Cloudflare Pages deployments:
 After `npx wrangler whoami` confirms the intended account, deploy all three
 origins with `npm run deploy:cloudflare`. The script deliberately uses
 storefront → provider → merchant for the fail-closed rights-safe cutover and
-remains the documented order. Do not reorder it without an explicit,
+remains the documented order. It byte-matches every deployed asset to the clean
+public commit, then runs the signed-out online gate; that gate requires the live
+provider to contain exactly three catalogues, six products, and RWF/KES/GHS,
+with both hosts pinned to that provider. A one-catalogue production slice fails
+closed. Do not reorder it without an explicit,
 separately tested migration decision. The Pages assignments are
 `groundedrelay.pages.dev` for the storefront,
 `groundedrelay-provider.pages.dev` for the provider, and

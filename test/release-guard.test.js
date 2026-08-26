@@ -2,7 +2,11 @@ import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
-import { agentContextDriftKinds } from "../scripts/check-public-release.mjs";
+import {
+  DEPLOYED_CATALOGUE_CONTRACT,
+  agentContextDriftKinds,
+  deployedCatalogueDrift,
+} from "../scripts/check-public-release.mjs";
 
 const read = (path) => readFile(new URL(path, import.meta.url), "utf8");
 
@@ -26,6 +30,8 @@ test("deployment publishes a clean tracked snapshot and smoke-stops in safe orde
   assert.equal(source.match(/site_tree_check "/g)?.length, 3);
   assert.match(source, /shasum -a 256/);
   assert.match(source, /"\$remote_hash" != "\$expected_hash"/);
+  assert.match(source, /npm run check:release -- --code-only --online/);
+  assert.match(source, /three-catalogue, six-product, two-host release contract/);
 
   const storefront = source.indexOf('pages deploy "$snapshot_dir/sites/storefront"');
   const storefrontSmoke = source.indexOf('site_tree_check "storefront"');
@@ -36,6 +42,28 @@ test("deployment publishes a clean tracked snapshot and smoke-stops in safe orde
   assert.ok(storefront < storefrontSmoke && storefrontSmoke < provider);
   assert.ok(provider < providerSmoke && providerSmoke < merchant);
   assert.ok(merchant < merchantSmoke);
+});
+
+test("release gate fails closed if production narrows the owned catalogue roster", async () => {
+  const [fixture, checker] = await Promise.all([
+    read("../sites/embed/backends/demo.js"),
+    read("../scripts/check-public-release.mjs"),
+  ]);
+  assert.equal(DEPLOYED_CATALOGUE_CONTRACT.merchants.length, 3);
+  assert.equal(DEPLOYED_CATALOGUE_CONTRACT.productIds.length, 6);
+  assert.deepEqual(
+    DEPLOYED_CATALOGUE_CONTRACT.merchants.map(({ currency }) => currency),
+    ["RWF", "KES", "GHS"],
+  );
+  assert.deepEqual(deployedCatalogueDrift(fixture), []);
+  assert.ok(deployedCatalogueDrift(
+    fixture.replace("RIGHTS_SAFE_MERCHANTS.map", "RIGHTS_SAFE_MERCHANTS.slice(0, 1).map"),
+  ).includes("fixture narrows the merchant roster to one catalogue"));
+  assert.ok(deployedCatalogueDrift(
+    fixture.replace('id: "cocoa-grid-carryall"', 'productId: "cocoa-grid-carryall"'),
+  ).some((message) => message.includes("6 product ids")));
+  assert.match(checker, /LIVE_CATALOGUE_CONTRACT/);
+  assert.match(checker, /\/backends\/demo\.js/);
 });
 
 test("public provider is fixture-only and ships no third-party catalogue adapter", async () => {

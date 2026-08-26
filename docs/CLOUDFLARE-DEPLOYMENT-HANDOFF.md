@@ -127,8 +127,12 @@ owned fixture, then publishes the independent proof/owned handoff target. The
 script refuses a dirty tree, a non-public origin, or a commit different from
 refreshed `origin/main`; reruns both local release gates; verifies the Pages
 projects and domains; publishes a tracked-only archive with the exact commit
-SHA; and stops unless every served asset byte-matches that archive. If an exact
-asset check fails, do not continue or record a rights-safe deployment.
+SHA; and stops unless every served asset byte-matches that archive. It then runs
+the signed-out online release gate, which fetches the deployed provider fixture
+and requires exactly the three owned catalogues, six products, and RWF/KES/GHS,
+while confirming both public hosts pin the same provider. If either an exact
+asset check or that multi-catalogue contract fails, do not record a rights-safe
+deployment.
 
 Create the `groundedrelay-merchant` project before starting, even though its
 content deploy is the third step. An approved demonstration handoff is bound to

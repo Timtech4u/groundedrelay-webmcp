@@ -126,8 +126,11 @@ cannot select another backend. Deploy all origins with
 `npm run deploy:cloudflare`; its current storefront → provider → merchant order
 is the fail-closed cutover from the historical provider.
 Do not introduce another order without an explicit, separately tested migration
-decision and coordinated script, tests, and docs. Smoke-test the exact URLs
-before claiming a local change is production. Submission media must show only the owned fictional
+decision and coordinated script, tests, and docs. After exact byte checks, the
+script runs `npm run check:release -- --code-only --online`; production must
+prove exactly three owned catalogues, six products, RWF/KES/GHS, and both hosts
+pinning the same provider. A one-catalogue slice fails the release. Smoke-test
+the rendered exact URLs before claiming a local change is production. Submission media must show only the owned fictional
 fixture. Direct native API execution and language-model tool selection are
 separate evidence gates.
 

@@ -11,6 +11,18 @@ const failures = [];
 const warnings = [];
 const passes = [];
 
+export const DEPLOYED_CATALOGUE_CONTRACT = Object.freeze({
+  merchants: Object.freeze([
+    Object.freeze({ id: "groundedrelay-demo-kigali", name: "GroundedRelay Demo — Kigali Pantry", countryCode: "RW", market: "RW", currency: "RWF" }),
+    Object.freeze({ id: "groundedrelay-demo-rift", name: "GroundedRelay Demo — Rift Runworks", countryCode: "KE", market: "KE", currency: "KES" }),
+    Object.freeze({ id: "groundedrelay-demo-accra", name: "GroundedRelay Demo — Accra Carry Studio", countryCode: "GH", market: "GH", currency: "GHS" }),
+  ]),
+  productIds: Object.freeze([
+    "family-egg-tray", "weekend-egg-box", "nyota-road-runner",
+    "bonde-trail-runner", "asa-weekender", "cocoa-grid-carryall",
+  ]),
+});
+
 const fail = (code, message) => failures.push({ code, message });
 const warn = (code, message) => warnings.push({ code, message });
 const pass = (message) => passes.push(message);
@@ -47,6 +59,41 @@ function cspDirective(csp, name) {
     .map((value) => value.trim())
     .find((value) => value === name || value.startsWith(`${name} `));
   return directive ? directive.split(/\s+/).slice(1) : [];
+}
+
+export function deployedCatalogueDrift(source) {
+  const drift = [];
+  const merchantSection = source.match(
+    /RIGHTS_SAFE_MERCHANTS\s*=\s*Object\.freeze\(\[([\s\S]*?)\]\);/,
+  )?.[1] ?? "";
+  const productSection = source.match(
+    /RAW_PRODUCTS\s*=\s*Object\.freeze\(\[([\s\S]*?)\]\);/,
+  )?.[1] ?? "";
+  const merchantIds = [...merchantSection.matchAll(/\bid:\s*"([^"]+)"/g)].map((match) => match[1]);
+  const productIds = [...productSection.matchAll(/\bmerchant:\s*"[^"]+",\s*id:\s*"([^"]+)"/g)]
+    .map((match) => match[1]);
+  const expectedMerchantIds = DEPLOYED_CATALOGUE_CONTRACT.merchants.map(({ id }) => id);
+
+  if (JSON.stringify(merchantIds) !== JSON.stringify(expectedMerchantIds)) {
+    drift.push(`expected exactly ${expectedMerchantIds.length} catalogue ids in release order`);
+  }
+  if (JSON.stringify(productIds) !== JSON.stringify(DEPLOYED_CATALOGUE_CONTRACT.productIds)) {
+    drift.push(`expected exactly ${DEPLOYED_CATALOGUE_CONTRACT.productIds.length} product ids in release order`);
+  }
+  for (const merchant of DEPLOYED_CATALOGUE_CONTRACT.merchants) {
+    const block = merchantSection.match(
+      new RegExp(`id:\\s*"${merchant.id}"[\\s\\S]*?keywords:\\s*Object\\.freeze`),
+    )?.[0] ?? "";
+    for (const [field, value] of Object.entries(merchant)) {
+      if (field !== "id" && !block.includes(`${field}: "${value}"`)) {
+        drift.push(`${merchant.id} is missing ${field}=${value}`);
+      }
+    }
+  }
+  if (/RIGHTS_SAFE_MERCHANTS\s*(?:\.slice\(\s*0\s*,\s*1\s*\)|\[\s*0\s*\])/.test(source)) {
+    drift.push("fixture narrows the merchant roster to one catalogue");
+  }
+  return drift;
 }
 
 function vercelCsp(path) {
@@ -487,6 +534,12 @@ function checkReleaseArtifacts(candidateFiles) {
     || !fixtureSource.includes('owner: "GroundedRelay"')) {
     fail("RIGHTS_MODE", "Public fixture must identify itself as GroundedRelay-owned, fictional, and rights-safe in shared state.");
   }
+  const catalogueDrift = deployedCatalogueDrift(fixtureSource);
+  if (catalogueDrift.length) {
+    fail("CATALOGUE_CONTRACT_DRIFT", `Tracked fixture contract drifted: ${catalogueDrift.join("; ")}.`);
+  } else {
+    pass("Tracked fixture defines exactly three owned catalogues and six products across RWF, KES, and GHS.");
+  }
   if (!storefrontSource.includes("FIXTURE_PROMPTS")
       || /RESEARCH_PROMPTS|SINGLE_CATALOGUE_PROMPTS/.test(storefrontSource)) {
     fail("RIGHTS_MODE", "HTTPS storefront must default its judge prompts and labels to the fictional fixture.");
@@ -639,6 +692,34 @@ async function checkLiveDeployment() {
     } catch (error) {
       fail("LIVE_DEPLOYMENT", `${label} verification failed: ${error.name}: ${String(error.message ?? "unknown error").slice(0, 160)}.`);
     }
+  }
+
+  const failureCountBefore = failures.length;
+  try {
+    const fixtureUrl = new URL("/backends/demo.js", "https://groundedrelay-provider.pages.dev");
+    fixtureUrl.searchParams.set("release-check", String(Date.now()));
+    const fixtureResponse = await fetch(fixtureUrl, {
+      redirect: "error",
+      cache: "no-store",
+      signal: AbortSignal.timeout(10_000),
+      headers: {
+        "cache-control": "no-cache",
+        "user-agent": "groundedrelay-public-release-check/1",
+      },
+    });
+    if (!fixtureResponse.ok) {
+      fail("LIVE_CATALOGUE_CONTRACT", `Live provider fixture returned HTTP ${fixtureResponse.status}.`);
+    } else {
+      const drift = deployedCatalogueDrift(await fixtureResponse.text());
+      if (drift.length) {
+        fail("LIVE_CATALOGUE_CONTRACT", `Live provider is not the complete multi-catalogue build: ${drift.join("; ")}.`);
+      }
+    }
+    if (failures.length === failureCountBefore) {
+      pass("Live provider serves exactly three owned catalogues and six products across RWF, KES, and GHS.");
+    }
+  } catch (error) {
+    fail("LIVE_CATALOGUE_CONTRACT", `Live multi-catalogue verification failed: ${error.name}: ${String(error.message ?? "unknown error").slice(0, 160)}.`);
   }
 }
 

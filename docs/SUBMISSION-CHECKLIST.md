@@ -139,6 +139,11 @@ update. GitHub Actions remains optional/manual supplemental evidence.
       products, prices, and links as GroundedRelay-owned examples.
 - [ ] Exactly three demo catalogues render: Kigali Pantry (`RWF`), Rift Runworks
       (`KES`), and Accra Carry Studio (`GHS`).
+- [ ] `npm run check:release -- --code-only --online` fetches the deployed
+      provider fixture and passes the exact three-catalogue, six-product,
+      RWF/KES/GHS contract; a one-catalogue production slice must fail closed.
+- [ ] Both public shopper hosts pin the same provider origin; the independent
+      host is a second consumer of the shared provider, not a second data silo.
 - [ ] ChatGPT's in-app browser or supported judge Chrome exposes
       `document.modelContext` on each host page and its provider frame.
 - [ ] Provider actions register under `wire__*` and are discovered only from the

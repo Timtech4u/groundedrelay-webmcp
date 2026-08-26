@@ -158,4 +158,8 @@ npx --yes "wrangler@${wrangler_version}" pages deploy "$snapshot_dir/sites/merch
 site_tree_check "merchant" "https://groundedrelay-merchant.pages.dev" \
   "$snapshot_dir/sites/merchant-demo" "index.html" "/"
 
+echo "Running the signed-out production contract, including the complete multi-catalogue provider…"
+npm run check:release -- --code-only --online
+
 echo "All three Pages origins serve every tracked public asset from release $commit_sha."
+echo "Production also passed the three-catalogue, six-product, two-host release contract."

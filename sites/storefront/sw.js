@@ -1,6 +1,6 @@
 // Cache the shell so the app opens offline once installed. Tool calls are never
 // cached — they cross an origin boundary and must always hit the provider.
-const CACHE = "groundedrelay-v10";
+const CACHE = "groundedrelay-v11";
 const SHELL = [
   "./",
   "./store.css",

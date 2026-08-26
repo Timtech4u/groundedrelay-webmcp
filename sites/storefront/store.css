@@ -186,7 +186,8 @@ h2.lede { margin-top: 30px }
 .card .stock.out { color: var(--bad) }
 .card-action { display: flex; gap: 8px; align-items: center; margin-top: 11px }
 .add-button { flex: 1; padding: 7px 10px; border-color: var(--text);
-              background: var(--text); color: #fff; font-size: 12.5px; min-height: 42px }
+              background: var(--text); color: #fff; font-size: 12px; min-height: 42px;
+              white-space: nowrap }
 .add-button:hover { background: var(--accent); border-color: var(--accent) }
 .add-button:disabled { cursor: not-allowed; opacity: .45 }
 .compare-button { flex: 1; padding: 7px 8px; font-size: 12.5px; background: #fff;
@@ -413,10 +414,8 @@ h2 .pop { margin-left: 6px; vertical-align: middle }
   .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px }
   .shot { height: 108px }
   .chat-log { max-height: 42vh }
-  .quick { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px;
-           scrollbar-width: none; -webkit-overflow-scrolling: touch }
-  .quick::-webkit-scrollbar { display: none }
-  .chip { flex: 0 0 auto }
+  .quick { display: grid; grid-template-columns: 1fr; overflow: visible; padding: 0 }
+  .chip { width: 100%; white-space: normal }
   .pop-body { position: fixed; left: 16px; right: 16px; top: auto; width: auto }
   .sheet { align-items: flex-end; padding: 0 }
   .sheet-card { border-radius: 16px 16px 0 0; max-width: none; max-height: 92dvh;
@@ -457,11 +456,10 @@ h2 .pop { margin-left: 6px; vertical-align: middle }
 }
 
 
-/* floating composer ---------------------------------------------------------
-   The input should always be within reach without occupying the page. On a
-   phone it docks to the bottom edge like a messaging app; on a wide screen the
-   whole assistant panel sticks as the results scroll past it. Neither steals
-   space from what the shopper came to look at. */
+/* responsive reach ----------------------------------------------------------
+   The desktop basket stays in view beside results. On phones the search form
+   remains inside its assistant card so it cannot cover help, suggestions, or
+   product controls. A basket shortcut appears only after an item is added. */
 
 @media (min-width: 821px) {
   .cols aside { position: sticky; top: 80px }
@@ -470,26 +468,14 @@ h2 .pop { margin-left: 6px; vertical-align: middle }
 @media (max-width: 820px) {
   .basket-jump:not([hidden]) {
     position: fixed; right: 16px;
-    bottom: calc(70px + env(safe-area-inset-bottom, 0px)); z-index: 34;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 34;
     display: inline-flex; align-items: center; justify-content: center;
     min-height: 44px; padding: 9px 15px; border-color: var(--accent);
     border-radius: 999px; background: var(--accent); color: #fff;
     font-weight: 650; box-shadow: var(--shadow);
   }
-  .chat { overflow: visible }
-  .chat-form {
-    position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
-    border-top: 1px solid var(--line);
-    background: color-mix(in srgb, var(--card) 88%, transparent);
-    backdrop-filter: saturate(180%) blur(12px);
-    -webkit-backdrop-filter: saturate(180%) blur(12px);
-    /* clear of the home indicator on notched phones */
-    padding-bottom: env(safe-area-inset-bottom, 0px);
-  }
   .chat-form input { padding: 14px 16px }
   .chat-form button { padding: 0 13px; font-size: 14px }
-  /* Nothing should ever end up underneath the bar. */
-  body { padding-bottom: calc(58px + env(safe-area-inset-bottom, 0px)) }
 }
 
 @media (prefers-reduced-motion: reduce) {

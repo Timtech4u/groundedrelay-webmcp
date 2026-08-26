@@ -110,6 +110,8 @@ all nine provider actions, the state-aware branch counts (3, 5, 7, 8, or 9)
 and the scripted path (3 with no active results → 7 with results → 8 with
 comparison → 9 with basket), comparison highlighting, mixed-currency grouping, basket
 mutation, both approve/veto paths, and provider reuse at port 5175.
+At phone widths, the search form and prompt suggestions must remain in normal
+document flow: no fixed composer may cover help, suggestions, or product controls.
 
 ## Deploying
 

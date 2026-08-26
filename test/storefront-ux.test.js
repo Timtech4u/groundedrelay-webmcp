@@ -20,7 +20,7 @@ test("first-run search is usable while the bounded provider handshake finishes",
 
 test("offline shell includes the fail-closed provider-mode dependency", async () => {
   const serviceWorker = await read("../sites/storefront/sw.js");
-  assert.match(serviceWorker, /const CACHE = "groundedrelay-v10"/);
+  assert.match(serviceWorker, /const CACHE = "groundedrelay-v11"/);
   assert.match(serviceWorker, /"\.\/provider-mode\.js"/);
   assert.match(serviceWorker, /"\.\/approval-view\.js"/);
   assert.match(serviceWorker, /"\.\/checkout-lifecycle\.js"/);
@@ -122,6 +122,14 @@ test("a nonempty mobile basket exposes a focused jump target without a desktop c
   assert.match(host, /\$\("basket-jump"\)\.textContent = `View basket · \$\{itemCount\}`/);
   assert.match(host, /\$\("basket-jump"\)\.addEventListener\("click"[\s\S]+basket\.focus\(\{ preventScroll: true \}\)[\s\S]+basket\.scrollIntoView/);
   assert.match(host, /body > header, body > main, body > footer, #basket-jump/);
+});
+
+test("mobile search and suggestions stay in flow instead of covering content", async () => {
+  const css = await read("../sites/storefront/store.css");
+  assert.doesNotMatch(css, /\.chat-form\s*\{\s*position:\s*fixed/);
+  assert.doesNotMatch(css, /body\s*\{\s*padding-bottom:\s*calc\(58px/);
+  assert.match(css, /\.quick \{ display: grid; grid-template-columns: 1fr; overflow: visible/);
+  assert.match(css, /bottom: calc\(16px \+ env\(safe-area-inset-bottom/);
 });
 
 test("exact-option changes preserve focus, labels, and grounded comparison state", async () => {

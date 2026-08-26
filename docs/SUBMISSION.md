@@ -43,9 +43,10 @@ legal advice or trademark clearance.
 ## Build timeline and challenge eligibility
 
 GroundedRelay's source work began on 26 August 2026; the challenge build window
-opened on 25 August. Its clean, final-only public repository has one commit
-inside that window and no inherited private history, personal metadata, local
-settings, or named merchant research. Judges can verify that public timestamp
+opened on 25 August. Its clean, final-only public repository has only
+challenge-period commits inside that window and no inherited private history,
+personal metadata, local settings, or named merchant research. Judges can verify
+that public timestamp
 directly. The private development history is
 retained for organizer review if requested, but it is not published because it
 contains personal metadata and retired external-catalogue work.

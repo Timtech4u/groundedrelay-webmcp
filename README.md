@@ -8,7 +8,7 @@ Built for the [OpenAI WebMCP Challenge](https://openai.com/webmcp-challenge/)
 
 The source work began on 26 August 2026, one day after the challenge window
 opened. The clean, final-only GroundedRelay repository is public and verified
-with one challenge-period commit, no inherited private history, and passing
+with only challenge-period commits, no inherited private history, and passing
 deterministic and publication gates. The private development history is
 retained for organizer review if requested.
 

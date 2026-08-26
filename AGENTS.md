@@ -136,6 +136,13 @@ the rendered exact URLs before claiming a local change is production. Submission
 fixture. Direct native API execution and language-model tool selection are
 separate evidence gates.
 
+For the final deployed native rerun, `npm run check:native:cloudflare` may use a
+short-lived Cloudflare Browser Run `--lab` session as independent evidence. It
+passes the WebSocket endpoint only in process memory and closes the session.
+Do not enable Cloudflare's automatic edge-injected WebMCP bridge on the three
+submitted origins: GroundedRelay's hand-written state-aware tools are the
+submission, and an injected pack would create a conflicting surface.
+
 The current development repository must remain private: reachable history has
 local settings, personal email metadata, and retired external-catalogue work.
 The public repository is `Timtech4u/groundedrelay-webmcp`; public access, MIT,

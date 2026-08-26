@@ -12,6 +12,7 @@ const args = Object.fromEntries(process.argv.slice(2).map((entry) => {
 }));
 
 const devtools = args.devtools ?? "http://127.0.0.1:9333";
+const browserRunWebSocket = process.env.CLOUDFLARE_BROWSER_RUN_WS || null;
 const storefront = args.url ?? "https://groundedrelay.pages.dev/";
 const provider = args.provider ?? "https://groundedrelay-provider.pages.dev";
 const timeoutMs = Number(args.timeout ?? 45_000);
@@ -541,12 +542,23 @@ let session;
 const artifactWrites = [];
 let screencastFrames = 0;
 try {
-  const browser = await readJson(`${devtools}/json/version`);
-  target = await readJson(`${devtools}/json/new?${encodeURIComponent("about:blank")}`, {
-    method: "PUT",
-  });
-  session = new CdpSession(target.webSocketDebuggerUrl);
-  await session.connect();
+  let browser;
+  if (browserRunWebSocket) {
+    session = new CdpSession(browserRunWebSocket);
+    await session.connect();
+    const version = await session.send("Browser.getVersion");
+    browser = {
+      Browser: version.product,
+      "Protocol-Version": version.protocolVersion,
+    };
+  } else {
+    browser = await readJson(`${devtools}/json/version`);
+    target = await readJson(`${devtools}/json/new?${encodeURIComponent("about:blank")}`, {
+      method: "PUT",
+    });
+    session = new CdpSession(target.webSocketDebuggerUrl);
+    await session.connect();
+  }
   await session.send("Runtime.enable");
   await session.send("Page.enable");
   await session.send("Page.addScriptToEvaluateOnNewDocument", {
@@ -616,8 +628,11 @@ try {
     throw new Error(`Native surface did not become ready: ${JSON.stringify(readiness)}`);
   }
 
-  const targetCountBefore = (await readJson(`${devtools}/json/list`))
-    .filter((item) => item.type === "page").length;
+  const countPageTargets = async () => browserRunWebSocket
+    ? (await session.send("Target.getTargets")).targetInfos
+      .filter((item) => item.type === "page").length
+    : (await readJson(`${devtools}/json/list`)).filter((item) => item.type === "page").length;
+  const targetCountBefore = await countPageTargets();
   const evidence = await evaluate(session, journeyExpression, 90_000);
   if (artifactDirectory) {
     await session.send("Page.stopScreencast");
@@ -644,8 +659,7 @@ try {
       screencastFrames,
     };
   }
-  const targetCountAfter = (await readJson(`${devtools}/json/list`))
-    .filter((item) => item.type === "page").length;
+  const targetCountAfter = await countPageTargets();
   const handoffResponses = await Promise.all(
     (evidence.details?.handoffLinks ?? []).map(async (url) => {
       const response = await fetch(url, { redirect: "follow" });
@@ -693,7 +707,7 @@ try {
   process.exitCode = 1;
 } finally {
   session?.close();
-  if (target?.id) {
+  if (!browserRunWebSocket && target?.id) {
     await fetch(`${devtools}/json/close/${target.id}`).catch(() => {});
   }
 }

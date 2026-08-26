@@ -182,7 +182,7 @@ without giving up checkout.
 
 ## What we have proved—and what remains before publication
 
-The deterministic source gate currently passes 96 of 96 total checks: 95 Node
+The deterministic source gate currently passes 99 of 99 total checks: 98 Node
 tests plus validation of eight machine-readable evaluation cases and the
 nine-tool contract. In an
 isolated WebMCP-enabled browser, the prior local rights-safe fixture candidate passed
@@ -197,6 +197,14 @@ the right sequence from a natural-language request. A local pass is also not a
 production pass. This article stays a draft until the exact public SHA is live
 on all three origins, the native production journey is repeated, the
 model-selected prompts succeed, and the public narrated demo is reviewed.
+
+Cloudflare's new [Browser Run WebMCP lab](https://developers.cloudflare.com/browser-run/features/webmcp/)
+gives us a useful independent production check: the same deterministic native
+journey can run in Cloudflare's experimental Chrome pool against the deployed
+HTTPS origins, including the human approval surface. That run is planned, not
+yet evidence. We will use Browser Run as a verifier; we will not enable
+Cloudflare's automatic edge-injected WebMCP bridge, because GroundedRelay's
+hand-written state-aware tools are the product judges should evaluate.
 
 ## What WebMCP changes
 

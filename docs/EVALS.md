@@ -13,6 +13,12 @@ effects, and both human decisions. It does not replace native prompt runs:
 direct `executeTool()` proves the contract, while only a built-in agent can
 prove action selection.
 
+After deployment, prefer the documented Cloudflare Browser Run `--lab` wrapper
+as an additional independent native-runtime pass. It must execute the same
+fixture-only probe and stay separate from model-selection evidence. Do not turn
+on Cloudflare's automatic edge-injected WebMCP bridge for the submitted origins;
+the hand-written GroundedRelay tools are the product under evaluation.
+
 The prior rights-safe fixture candidate passed **42/42** direct native checks
 locally on the independent host. It includes exact product-to-variant binding, five
 grounded highlighted rows, viewport intersection, approve/veto behavior, and
@@ -20,7 +26,7 @@ artifact validation. Rerun the final GroundedRelay tree locally and on the
 exact final HTTPS deployment; neither direct result substitutes for the
 model-selection repetitions below.
 
-`npm run check` passes **96/96 total checks**: 95 Node tests plus eval
+`npm run check` passes **99/99 total checks**: 98 Node tests plus eval
 validation. The eval validation covers **8 machine-readable cases** and the
 **9-tool** contract. These local deterministic gates are required. GitHub
 Actions may be run manually after publication as supplemental evidence, but a

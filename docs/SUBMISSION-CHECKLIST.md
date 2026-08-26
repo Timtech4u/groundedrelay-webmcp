@@ -30,8 +30,8 @@ Do not change a status to PASS without recording evidence. Any P0 failure means
 | P0 | Devpost submission completed before cutoff | NOT STARTED / unverified | Confirmation page and saved submission URL |
 | P1 | Screenshots prove product and WebMCP | LOCAL TECHNICAL ARTIFACTS EXIST; **PRODUCTION S1–S8 MISSING** | Approved S1–S8 capture set from `docs/DEMO-SCRIPT.md` |
 | P1 | Production matches source commit | **PENDING** | Deployment commit recorded and matched to public repository HEAD |
-| P1 | Deterministic suite | **PUBLIC MAIN PASS — 96/96 total checks: 95 Node tests plus eval validation; 8 evals, 9 tools** | Saved `npm run check` output from the synchronized public tree |
-| P1 | Public-release source policy | **PASS — 35/35 ON PUBLIC MAIN** | Saved result has 35 pass, 0 warning, 0 failure |
+| P1 | Deterministic suite | **PUBLIC MAIN PASS — 99/99 total checks: 98 Node tests plus eval validation; 8 evals, 9 tools** | Saved `npm run check` output from the synchronized public tree |
+| P1 | Public-release source policy | **PASS — 36/36 ON PUBLIC MAIN** | Saved result has 36 pass, 0 warning, 0 failure |
 | P1 | GitHub Actions | **OPTIONAL / MANUAL** | If run, save the result as supplemental evidence; do not block submission on Actions when local deterministic and publication gates are green |
 | P1 | Documentation/runtime action contract agrees | VERIFY FINAL | AGENTS, README, evals, runtime, activity count and submission copy use one truthful contract |
 
@@ -44,7 +44,7 @@ named merchant research. Do not change its visibility. Every public update
 must come from a clean rights-safe tree; an authenticated push by itself is not
 public-access evidence.
 
-Public `main` passes 96/96 deterministic checks and 35/35 publication checks;
+Public `main` passes 99/99 deterministic checks and 36/36 publication checks;
 local public `main` matches `origin/main`. Repeat both gates after any source
 update. GitHub Actions remains optional/manual supplemental evidence.
 
@@ -170,6 +170,11 @@ update. GitHub Actions remains optional/manual supplemental evidence.
       the prior local fixture 42/42 and earlier deployed pre-fixture 32/32
       `modelContext/getTools/executeTool` runs did not test a model choosing the
       right actions; neither is evidence for the final production deployment.
+- [ ] Run `npm run check:native:cloudflare` against the exact deployed commit in
+      a short-lived Browser Run `--lab` session; save the direct check count,
+      browser version and artifact hashes without saving its WebSocket endpoint.
+- [ ] Keep Cloudflare's automatic edge-injected WebMCP bridge disabled on all
+      submitted origins; it must not add duplicate or unrelated tools.
 - [ ] Run the exact prompts in [`DEMO-SCRIPT.md`](DEMO-SCRIPT.md) with the final
       supported model and record whether it completes the full sequence. Per
       the [official Site Tools documentation](https://learn.chatgpt.com/docs/webmcp),

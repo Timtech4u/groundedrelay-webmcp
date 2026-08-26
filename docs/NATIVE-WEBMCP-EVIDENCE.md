@@ -118,6 +118,47 @@ from a `hidden` property.
 
 ## Reproduce safely
 
+### Recommended production rerun: Cloudflare Browser Run WebMCP lab
+
+Cloudflare's [Browser Run WebMCP lab](https://developers.cloudflare.com/browser-run/features/webmcp/)
+is a useful independent production verifier after all three HTTPS origins are
+deployed. It runs the same deterministic GroundedRelay probe in Cloudflare's
+experimental Chrome pool, supports native tool discovery/execution and
+human-in-the-loop surfaces, and avoids treating a local compatibility browser
+as the only native evidence.
+
+Do **not** enable Cloudflare's separate automatic WebMCP bridge on the submitted
+origins. GroundedRelay already registers its own state-aware tools; an injected
+tool pack would create a second implementation surface, risk duplicate or
+irrelevant tools, and make the submission harder to evaluate. Browser Run is
+the verifier here, not the source of GroundedRelay's tools.
+
+After explicit Cloudflare authorization and the exact-commit deployment:
+
+```bash
+CLOUDFLARE_NATIVE_EVIDENCE="$(mktemp -d /private/tmp/groundedrelay-cf-native.XXXXXX)"
+npm run check:native:cloudflare -- \
+  --url=https://groundedrelay.pages.dev/ \
+  --provider=https://groundedrelay-provider.pages.dev \
+  --scenario=fictional \
+  --artifacts="$CLOUDFLARE_NATIVE_EVIDENCE" \
+  --timeout=60000
+```
+
+The wrapper uses pinned Wrangler, creates a short-lived `--lab` session with a
+ten-minute maximum keep-alive, passes its WebSocket target to the probe only in
+process memory, and closes the Browser Run session afterward. It never prints
+or writes the WebSocket endpoint. The command still requires the existing
+Wrangler login; OAuth approval remains a separate action-time authorization.
+Browser Run lab is experimental and counts against Cloudflare's normal limits,
+so this is release evidence rather than a production runtime dependency.
+
+Record the resulting check count, exact public commit, timestamp, browser
+product/version and artifact hashes as a separate evidence row. It remains a
+direct native API run—not proof that a language model chose the actions.
+
+### Local compatibility rerun
+
 This is an explicit compatibility exception to the normal Codex-browser-only
 workflow. Never use the default Chrome profile. Start a second process with a
 new temporary profile and the WebMCP test feature:

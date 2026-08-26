@@ -51,9 +51,9 @@ directly. The private development history is
 retained for organizer review if requested, but it is not published because it
 contains personal metadata and retired external-catalogue work.
 
-`npm run check` now passes 96/96 total checks
-(95 Node tests plus eval validation), with 8 eval cases and 9 tools. The clean
-public `main` passes 35/35 publication checks and matches `origin/main`. GitHub
+`npm run check` now passes 99/99 total checks
+(98 Node tests plus eval validation), with 8 eval cases and 9 tools. The clean
+public `main` passes 36/36 publication checks and matches `origin/main`. GitHub
 Actions may be run manually as supplemental evidence,
 but the required source proof is the deterministic and publication gates.
 

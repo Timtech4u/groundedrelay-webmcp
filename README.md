@@ -215,6 +215,23 @@ separately tested migration decision. The Pages assignments are
 `groundedrelay-merchant.pages.dev` for the portability host. Smoke-test all
 three origins after every release before describing a change as production-ready.
 
+For an independent native-runtime check after deployment, Cloudflare Browser
+Run's experimental WebMCP pool can execute the same deterministic journey:
+
+```bash
+npm run check:native:cloudflare -- \
+  --url=https://groundedrelay.pages.dev/ \
+  --provider=https://groundedrelay-provider.pages.dev \
+  --scenario=fictional \
+  --timeout=60000
+```
+
+The command creates and closes a short-lived `--lab` session and never persists
+its WebSocket endpoint. It requires an explicitly authorized Wrangler login.
+This is an additional direct native API check, not model-selection proof or a
+production dependency. Keep Cloudflare's automatic edge-injected WebMCP bridge
+disabled: GroundedRelay's own state-aware tools are the submitted implementation.
+
 ## Layout
 
 ```text

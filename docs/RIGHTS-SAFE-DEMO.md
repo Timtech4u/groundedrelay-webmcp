@@ -210,7 +210,7 @@ npm test
 npm run eval:validate
 ```
 
-Current local result: `npm run check` passes **96/96 total checks**: 95 Node
+Current local result: `npm run check` passes **99/99 total checks**: 98 Node
 tests plus eval validation, with **8 eval cases** and **9 validated tools**.
 This does not replace the public exact-SHA release smoke.
 

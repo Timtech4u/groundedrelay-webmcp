@@ -44,6 +44,23 @@ test("deployment publishes a clean tracked snapshot and smoke-stops in safe orde
   assert.ok(merchant < merchantSmoke);
 });
 
+test("Cloudflare Browser Run uses a short-lived WebMCP lab without persisting its endpoint", async () => {
+  const [wrapper, probe, pkg] = await Promise.all([
+    read("../scripts/cloudflare-browser-run-check.mjs"),
+    read("../scripts/native-webmcp-check.mjs"),
+    read("../package.json"),
+  ]);
+  assert.match(wrapper, /wrangler@4\.126\.0/);
+  assert.match(wrapper, /"--lab", "--keepAlive", "600", "--json", "--open=false"/);
+  assert.match(wrapper, /CLOUDFLARE_BROWSER_RUN_WS: webSocket/);
+  assert.match(wrapper, /"browser", "close", sessionId/);
+  assert.doesNotMatch(wrapper, /console\.(?:log|error)\([^\n]*(?:webSocket|created\.stdout|session\.targets)/);
+  assert.match(probe, /process\.env\.CLOUDFLARE_BROWSER_RUN_WS/);
+  assert.match(probe, /Browser\.getVersion/);
+  assert.match(probe, /Target\.getTargets/);
+  assert.match(pkg, /"check:native:cloudflare": "node scripts\/cloudflare-browser-run-check\.mjs"/);
+});
+
 test("release gate fails closed if production narrows the owned catalogue roster", async () => {
   const [fixture, checker] = await Promise.all([
     read("../sites/embed/backends/demo.js"),

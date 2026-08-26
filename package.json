@@ -16,9 +16,10 @@
     "start": "bash scripts/start-local.sh",
     "dev": "node server.js",
     "deploy:cloudflare": "bash scripts/deploy-cloudflare.sh",
+    "check:native:cloudflare": "node scripts/cloudflare-browser-run-check.mjs",
     "test": "node --test",
     "eval:validate": "node scripts/validate-evals.mjs",
     "check:release": "node scripts/check-public-release.mjs",
-    "check": "node --check sites/embed/embed.js && node --check sites/embed/backends/catalogue.js && node --check sites/embed/backends/demo.js && node --check sites/storefront/store.js && node --check sites/storefront/agent.js && node --check sites/merchant-demo/client.js && node scripts/validate-evals.mjs && node --test"
+    "check": "node --check sites/embed/embed.js && node --check sites/embed/backends/catalogue.js && node --check sites/embed/backends/demo.js && node --check sites/storefront/store.js && node --check sites/storefront/agent.js && node --check sites/merchant-demo/client.js && node --check scripts/native-webmcp-check.mjs && node --check scripts/cloudflare-browser-run-check.mjs && node scripts/validate-evals.mjs && node --test"
   }
 }

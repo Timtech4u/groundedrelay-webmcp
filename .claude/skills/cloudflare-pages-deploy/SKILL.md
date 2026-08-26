@@ -105,6 +105,14 @@ verify all nine provider `wire__*` capabilities, clean action counts of 3, 5, 7,
 8, or 9 as state changes, the scripted 3 to 7 to 8 to 9 path, exact variants,
 RWF/KES/GHS separation, highlighted comparison evidence, approval, and veto.
 
+After the signed-out and rendered checks pass, use
+`npm run check:native:cloudflare` for an additional direct native-runtime pass
+in a short-lived Cloudflare Browser Run `--lab` session. The wrapper keeps its
+WebSocket endpoint in process memory and closes the session. It requires the
+same explicitly authorized Wrangler account. Keep Cloudflare's automatic
+edge-injected WebMCP bridge disabled on every submitted origin; GroundedRelay's
+hand-written state-aware tools are the implementation being judged.
+
 Approval may reveal only reviewed links on
 `https://groundedrelay-merchant.pages.dev`; it must never navigate or complete a
 purchase automatically. A successful CLI deployment is not production proof.

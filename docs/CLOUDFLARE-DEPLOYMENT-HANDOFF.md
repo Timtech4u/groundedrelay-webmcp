@@ -10,7 +10,7 @@ as proof of the current candidate.
 
 Current source evidence is narrower and explicit:
 
-- `npm run check` passes **96/96 total checks**: 95 Node tests plus eval
+- `npm run check` passes **99/99 total checks**: 98 Node tests plus eval
   validation, with **8 eval cases** and **9 tools**;
 - the prior fixture candidate passed **42/42 direct native WebMCP checks** in
   the isolated compatibility runtime; the final GroundedRelay tree needs a
@@ -22,7 +22,7 @@ Current source evidence is narrower and explicit:
   Read the release SHA from the synchronized public `main` at deployment time;
   do not assume the first commit remains HEAD.
 
-Public `main` passes **35/35 publication checks**. Repeat the gate after any
+Public `main` passes **36/36 publication checks**. Repeat the gate after any
 source update and before deploying a different public commit.
 
 Source synchronization is complete. Deploy only the verified public SHA to the

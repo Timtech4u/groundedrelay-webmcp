@@ -671,7 +671,7 @@ async function checkLiveDeployment() {
       if (label === "independent host"
           && (!source.includes("createMerchantProviderGate")
             || !source.includes("providerGate.receive(kind, message)")
-            || !source.includes("url.origin === location.origin"))) {
+            || !source.includes("uniqueApprovedMerchantLinks(message.handoff, location.origin)"))) {
         fail("LIVE_RIGHTS_MODE", "Live independent host does not enforce fictional provider data and exact handoff origin.");
       }
       if (label === "independent host") {
@@ -684,6 +684,18 @@ async function checkLiveDeployment() {
             || !gateSource.includes("createMerchantProviderGate")
             || !gateSource.includes('message.fixture?.owner === "BasketShipper"')) {
           fail("LIVE_RIGHTS_MODE", "Live independent host is missing its paired fictional-mode gate.");
+        }
+        const handoffResponse = await fetch("https://groundedrelay-merchant.pages.dev/handoff.js", {
+          signal: AbortSignal.timeout(10_000),
+          headers: { "user-agent": "groundedrelay-public-release-check/1" },
+        });
+        const handoffSource = handoffResponse.ok ? await handoffResponse.text() : "";
+        if (!handoffResponse.ok
+            || !handoffSource.includes("uniqueApprovedMerchantLinks")
+            || !handoffSource.includes("url.origin !== expectedOrigin")
+            || !handoffSource.includes('url.pathname !== "/"')
+            || !handoffSource.includes('url.hash !== `#handoff=${slug}`')) {
+          fail("LIVE_RIGHTS_MODE", "Live independent host is missing exact handoff origin, path, and hash validation.");
         }
       }
       if (failures.length === failureCountBefore) {

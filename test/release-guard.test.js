@@ -83,6 +83,15 @@ test("release gate fails closed if production narrows the owned catalogue roster
   assert.match(checker, /\/backends\/demo\.js/);
 });
 
+test("online release gate follows the independent host's dedicated handoff validator", async () => {
+  const checker = await read("../scripts/check-public-release.mjs");
+  assert.match(checker, /uniqueApprovedMerchantLinks\(message\.handoff, location\.origin\)/);
+  assert.match(checker, /groundedrelay-merchant\.pages\.dev\/handoff\.js/);
+  assert.match(checker, /url\.origin !== expectedOrigin/);
+  assert.match(checker, /url\.pathname !== "\/"/);
+  assert.match(checker, /url\.hash !== `#handoff=\$\{slug\}`/);
+});
+
 test("public provider is fixture-only and ships no third-party catalogue adapter", async () => {
   const [provider, checker] = await Promise.all([
     read("../sites/embed/embed.js"),

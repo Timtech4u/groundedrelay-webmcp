@@ -45,7 +45,7 @@ try {
     throw new Error("Browser Run created a session without the required session id or WebSocket target.");
   }
 
-  console.log("Cloudflare Browser Run WebMCP lab acquired; running the GroundedRelay native contract…");
+  console.log("Cloudflare Browser Run WebMCP lab acquired; running the BasketShipper native contract…");
   const probe = spawnSync(process.execPath, [
     fileURLToPath(new URL("./native-webmcp-check.mjs", import.meta.url)),
     ...process.argv.slice(2),

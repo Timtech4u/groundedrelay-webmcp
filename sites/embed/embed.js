@@ -61,7 +61,7 @@ const modelContext = document.modelContext || navigator.modelContext;
 // clean one. Sharing a name with the hoisted copy makes executeTool fail.
 const WIRE_PREFIX = "wire__";
 
-// The submitted provider has one data mode: a GroundedRelay-owned fictional fixture.
+// The submitted provider has one data mode: a BasketShipper-owned fictional fixture.
 // Keeping third-party catalogue adapters out of the public tree makes the
 // deployed behaviour, source rights, and judge story identical.
 const localIntegration = isLocalHost(HOST_ORIGIN);
@@ -87,7 +87,7 @@ try {
 const dataDisclosure = () => backend.state().fixture?.rightsSafe
   ? {
       data_mode: "fictional_judge_demo",
-      data_notice: "GroundedRelay-owned fictional catalogue; not a real merchant, offer, or order flow.",
+      data_notice: "BasketShipper-owned fictional catalogue; not a real merchant, offer, or order flow.",
     }
   : {};
 const withDataDisclosure = (payload) => ({ ...dataDisclosure(), ...payload });
@@ -337,7 +337,7 @@ const TOOL_DEFINITIONS = [
     capability: "listShops",
     name: "list_shops",
     title: "View searchable shops",
-    description: "List this provider's searchable catalogues with country, market, currency, readiness, reachability, and configured delivery coverage. GroundedRelay-owned fictional demo catalogues are labelled as such.",
+    description: "List this provider's searchable catalogues with country, market, currency, readiness, reachability, and configured delivery coverage. BasketShipper-owned fictional demo catalogues are labelled as such.",
     annotations: { readOnlyHint: true, untrustedContentHint: true },
     inputSchema: objectSchema({}),
     execute: async () => JSON.stringify(withDataDisclosure(

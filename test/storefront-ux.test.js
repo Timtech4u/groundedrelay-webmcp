@@ -72,9 +72,9 @@ test("raw storefront is fictional-safe before the provider attestation", async (
     read("../sites/storefront/index.html"),
     read("../sites/storefront/store.js"),
   ]);
-  assert.match(html, /<title>GroundedRelay — fictional shopping demo<\/title>/);
-  assert.match(html, /Fictional judge demo — all names,[\s\S]+GroundedRelay-owned examples/);
-  assert.match(html, /This public demo uses GroundedRelay-owned fictional data/);
+  assert.match(html, /<title>BasketShipper — fictional shopping demo<\/title>/);
+  assert.match(html, /Fictional judge demo — all names,[\s\S]+BasketShipper-owned examples/);
+  assert.match(html, /This public demo uses BasketShipper-owned fictional data/);
   assert.doesNotMatch(html, /African brands|downloads public product catalogues|Catalogue inclusion|each catalogue remains the source of truth/i);
   assert.match(host, /const experience = classifyStorefrontExperience\(d\)/);
   assert.match(host, /applyExperienceCopy\(configured\)/);

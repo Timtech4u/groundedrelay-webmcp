@@ -11,7 +11,7 @@ const fixtureState = {
   protocol: 2,
   dataMode: "fictional",
   fictional: true,
-  fixture: { rightsSafe: true, fictional: true, owner: "GroundedRelay" },
+  fixture: { rightsSafe: true, fictional: true, owner: "BasketShipper" },
 };
 
 test("local and public entry URLs always request the owned fixture", () => {

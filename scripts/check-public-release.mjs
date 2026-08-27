@@ -13,9 +13,9 @@ const passes = [];
 
 export const DEPLOYED_CATALOGUE_CONTRACT = Object.freeze({
   merchants: Object.freeze([
-    Object.freeze({ id: "groundedrelay-demo-kigali", name: "GroundedRelay Demo — Kigali Pantry", countryCode: "RW", market: "RW", currency: "RWF" }),
-    Object.freeze({ id: "groundedrelay-demo-rift", name: "GroundedRelay Demo — Rift Runworks", countryCode: "KE", market: "KE", currency: "KES" }),
-    Object.freeze({ id: "groundedrelay-demo-accra", name: "GroundedRelay Demo — Accra Carry Studio", countryCode: "GH", market: "GH", currency: "GHS" }),
+    Object.freeze({ id: "groundedrelay-demo-kigali", name: "BasketShipper Demo — Kigali Pantry", countryCode: "RW", market: "RW", currency: "RWF" }),
+    Object.freeze({ id: "groundedrelay-demo-rift", name: "BasketShipper Demo — Rift Runworks", countryCode: "KE", market: "KE", currency: "KES" }),
+    Object.freeze({ id: "groundedrelay-demo-accra", name: "BasketShipper Demo — Accra Carry Studio", countryCode: "GH", market: "GH", currency: "GHS" }),
   ]),
   productIds: Object.freeze([
     "family-egg-tray", "weekend-egg-box", "nyota-road-runner",
@@ -190,7 +190,7 @@ function checkTrackedAgentContext(candidateFiles) {
     "WIRE_PREFIX",
     "getTools({ fromOrigins: [PROVIDER_ORIGIN] })",
     "JSON.stringify(input ?? {})",
-    "GroundedRelay-owned fictional",
+    "BasketShipper-owned fictional",
     "Approve or Veto",
     "list_shops", "get_shopping_state", "search_products", "inspect_products",
     "focus_products", "compare_products", "highlight_evidence",
@@ -213,7 +213,7 @@ function checkTrackedAgentContext(candidateFiles) {
   }
 
   if (!failures.some(({ code }) => code === "STALE_AGENT_CONTEXT")) {
-    pass("Hidden agent skills use the current GroundedRelay fixture-only WebMCP and Cloudflare Pages contracts.");
+    pass("Hidden agent skills use the current BasketShipper fixture-only WebMCP and Cloudflare Pages contracts.");
   }
 }
 
@@ -317,7 +317,7 @@ function checkSecurityContracts() {
     [storefront.includes("createFictionalProviderGate(STOREFRONT_MODE.requireFictional)")
       && providerMode.includes("requireFictional: true")
       && providerMode.includes('message?.dataMode !== "fictional"')
-      && providerMode.includes('message.fixture?.owner === "GroundedRelay"'),
+      && providerMode.includes('message.fixture?.owner === "BasketShipper"'),
     "Public storefront waits for rights-safe fictional attestations in both ready and state messages."],
     [provider.includes("approvalId") && provider.includes("backend.state().revision"), "Approval is bound to an id and revalidated basket revision."],
     [provider.includes("approvalCartSnapshot(current.cart)")
@@ -331,8 +331,8 @@ function checkSecurityContracts() {
     [provider.includes('"https://groundedrelay.pages.dev"') && provider.includes('"https://groundedrelay-merchant.pages.dev"'), "Provider source allows both exact production host origins."],
     [merchantClient.includes("createMerchantProviderGate()")
       && merchantClient.includes("providerGate.receive(kind, message)")
-      && merchantGate.includes('message.fixture?.owner === "GroundedRelay"'),
-    "Independent host also waits for paired GroundedRelay-owned fictional attestations."],
+      && merchantGate.includes('message.fixture?.owner === "BasketShipper"'),
+    "Independent host also waits for paired BasketShipper-owned fictional attestations."],
   ];
   for (const [ok, message] of contracts) ok ? pass(message) : fail("SECURITY_CONTRACT", message);
 
@@ -459,7 +459,7 @@ function checkReleaseArtifacts(candidateFiles) {
   const deploymentContracts = [
     [deployScript.includes("github.com/Timtech4u/groundedrelay-webmcp")
       && deployScript.includes('branch="$(git symbolic-ref --quiet --short HEAD || true)"'),
-    "Deployment is restricted to the public GroundedRelay main checkout."],
+    "Deployment is restricted to the public BasketShipper main checkout."],
     [deployScript.includes("git status --porcelain=v1 --untracked-files=all"),
       "Deployment refuses a dirty working tree."],
     [deployScript.includes("git fetch --quiet origin main")
@@ -531,8 +531,8 @@ function checkReleaseArtifacts(candidateFiles) {
     || !catalogueSource.includes("buildComparison")
     || !fixtureSource.includes("rightsSafe: true")
     || !fixtureSource.includes("fictional: true")
-    || !fixtureSource.includes('owner: "GroundedRelay"')) {
-    fail("RIGHTS_MODE", "Public fixture must identify itself as GroundedRelay-owned, fictional, and rights-safe in shared state.");
+    || !fixtureSource.includes('owner: "BasketShipper"')) {
+    fail("RIGHTS_MODE", "Public fixture must identify itself as BasketShipper-owned, fictional, and rights-safe in shared state.");
   }
   const catalogueDrift = deployedCatalogueDrift(fixtureSource);
   if (catalogueDrift.length) {
@@ -547,7 +547,7 @@ function checkReleaseArtifacts(candidateFiles) {
   if (!failures.some(({ code }) => [
     "RIGHTS_MODE", "THIRD_PARTY_ADAPTER", "UNLICENSED_PUBLIC_COPY",
   ].includes(code))) {
-    pass("Tracked production data and judge-facing copy use only the GroundedRelay-owned fictional fixture.");
+    pass("Tracked production data and judge-facing copy use only the BasketShipper-owned fictional fixture.");
   }
 
   if (codeOnly) return;
@@ -658,7 +658,7 @@ async function checkLiveDeployment() {
         const modeSource = modeResponse.ok ? await modeResponse.text() : "";
         if (!modeResponse.ok
             || !modeSource.includes("createFictionalProviderGate")
-            || !modeSource.includes('message.fixture?.owner === "GroundedRelay"')) {
+            || !modeSource.includes('message.fixture?.owner === "BasketShipper"')) {
           fail("LIVE_RIGHTS_MODE", "Live storefront is missing its fail-closed fictional-mode gate.");
         }
       }
@@ -682,7 +682,7 @@ async function checkLiveDeployment() {
         const gateSource = gateResponse.ok ? await gateResponse.text() : "";
         if (!gateResponse.ok
             || !gateSource.includes("createMerchantProviderGate")
-            || !gateSource.includes('message.fixture?.owner === "GroundedRelay"')) {
+            || !gateSource.includes('message.fixture?.owner === "BasketShipper"')) {
           fail("LIVE_RIGHTS_MODE", "Live independent host is missing its paired fictional-mode gate.");
         }
       }

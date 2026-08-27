@@ -503,7 +503,7 @@ function processProviderMessage(message) {
     setSearchEnabled(true);
     renderToolSurface();
     if (message.dataMode !== "fictional" || !message.fictional) {
-      providerUnavailable("Provider refused: expected GroundedRelay-owned fictional data mode.");
+      providerUnavailable("Provider refused: expected BasketShipper-owned fictional data mode.");
       return;
     }
     discoverTools().catch((error) => showDirectControlsFallback(
@@ -597,7 +597,7 @@ addEventListener("message", (event) => {
     if (outcome.rejected) {
       pendingReady = null;
       pendingState = null;
-      providerUnavailable("Provider refused: expected protocol-2 GroundedRelay-owned fictional ready and state evidence.");
+      providerUnavailable("Provider refused: expected protocol-2 BasketShipper-owned fictional ready and state evidence.");
       return;
     }
     if (kind === "ready") pendingReady = message;

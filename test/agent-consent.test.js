@@ -90,7 +90,7 @@ test("the optional model cannot delay fallback or stack form handlers", async ()
     read("../sites/storefront/store.js"),
   ]);
   assert.match(html, /id="model-download-consent"[^>]*>Allow on-device model download</);
-  assert.match(html, /GroundedRelay never asks for an API key/);
+  assert.match(html, /BasketShipper never asks for an API key/);
   assert.doesNotMatch(html, /type="password"|key-input|key-save/);
   assert.match(agent, /if \(plan === "consented-download"\) beginConsentedModelDownload\(\)/);
   assert.match(agent, /settleWithin\(localTools\(\), "Available action refresh"\)/);

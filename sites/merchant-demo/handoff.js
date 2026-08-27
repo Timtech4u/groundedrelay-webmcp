@@ -1,7 +1,7 @@
 const FICTIONAL_HANDOFF_STORES = new Map([
-  ["groundedrelay-demo-kigali-pantry", "GroundedRelay Demo — Kigali Pantry"],
-  ["groundedrelay-demo-rift-runworks", "GroundedRelay Demo — Rift Runworks"],
-  ["groundedrelay-demo-accra-carry-studio", "GroundedRelay Demo — Accra Carry Studio"],
+  ["groundedrelay-demo-kigali-pantry", "BasketShipper Demo — Kigali Pantry"],
+  ["groundedrelay-demo-rift-runworks", "BasketShipper Demo — Rift Runworks"],
+  ["groundedrelay-demo-accra-carry-studio", "BasketShipper Demo — Accra Carry Studio"],
 ]);
 
 export function handoffStoreFromHash(hash) {

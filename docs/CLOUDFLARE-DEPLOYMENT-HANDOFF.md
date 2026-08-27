@@ -1,4 +1,4 @@
-# GroundedRelay Cloudflare deployment handoff
+# BasketShipper Cloudflare deployment handoff
 
 Last reviewed: 26 August 2026 (Africa/Kigali)
 
@@ -13,7 +13,7 @@ Current source evidence is narrower and explicit:
 - `npm run check` passes **99/99 total checks**: 98 Node tests plus eval
   validation, with **8 eval cases** and **9 tools**;
 - the prior fixture candidate passed **42/42 direct native WebMCP checks** in
-  the isolated compatibility runtime; the final GroundedRelay tree needs a
+  the isolated compatibility runtime; the final BasketShipper tree needs a
   fresh local run;
 - the sanitized public repository is
   <https://github.com/Timtech4u/groundedrelay-webmcp>; its first public
@@ -36,7 +36,7 @@ The next public release must expose:
 | `groundedrelay-provider` | `sites/embed/` | `https://groundedrelay-provider.pages.dev` | Shared cross-origin WebMCP provider |
 | `groundedrelay-merchant` | `sites/merchant-demo/` | `https://groundedrelay-merchant.pages.dev` | Independent static host and owned handoff target |
 
-All three projects are static. GroundedRelay adds no Worker, Pages Function,
+All three projects are static. BasketShipper adds no Worker, Pages Function,
 application server, search proxy, database, analytics beacon, model-key store,
 or payment service.
 
@@ -48,7 +48,7 @@ every production gate in
 ## Rights-safe production policy
 
 - Every HTTPS caller receives `createRightsSafeBackend()` with three
-  GroundedRelay-owned fictional catalogues, six invented products, no third-party
+  BasketShipper-owned fictional catalogues, six invented products, no third-party
   images, and explicit fictional-data disclosure.
 - Public query strings cannot select another backend; the tracked runtime is
   fixture-only.
@@ -67,16 +67,15 @@ every production gate in
   approval reveals an owned `https://groundedrelay-merchant.pages.dev/` demo link but
   never opens it, accepts payment, creates an order, or proves a purchase.
 - RWF, KES, and GHS remain separate. Money uses ISO currency plus integer minor
-  units; GroundedRelay never invents an exchange rate or combined total.
+  units; BasketShipper never invents an exchange rate or combined total.
 
 The full public-data boundary is documented in
 [`RIGHTS-SAFE-DEMO.md`](RIGHTS-SAFE-DEMO.md). The user's decision is **do not
 send merchant outreach**; written merchant permission is not a blocker for this
-owned-fixture path. Exact web, npm, PyPI, GitHub repository-name, and
-`.com`/`.dev`/`.app`/`.io` DNS screens on 2026-08-26 found no direct
-GroundedRelay software or product match, but this is only a preliminary
-collision screen. A final terms and naming review is still required, and this
-document does not claim legal or trademark clearance.
+owned-fixture path. An exact web, npm, PyPI, GitHub repository-name, and
+`.com`/`.dev`/`.app`/`.io` DNS screen on 27 August 2026 found no direct exact
+BasketShipper software or product match. This is preliminary collision evidence,
+not legal advice, a comprehensive rights search, or trademark clearance.
 
 ## Repository changes in the candidate
 
@@ -113,7 +112,7 @@ git diff --check
 ### One-time rights-safe cutover
 
 The retired provider deployment predates the owned fixture. For the **first
-GroundedRelay release**, use this fail-closed order from the verified public
+BasketShipper release**, use this fail-closed order from the verified public
 commit.
 The checked-in deployment script encodes the order and checkpoints:
 
@@ -165,7 +164,7 @@ checks** in an isolated Chrome 151 profile, including state branches, rendered
 effects, exact variant-to-product binding, separate KES/GHS totals, five
 grounded highlighted rows, stale-state rejection, approve, veto, artifact
 validation, and cleanup. It is historical local contract evidence, not final
-GroundedRelay proof, production evidence, or a language model choosing actions.
+BasketShipper proof, production evidence, or a language model choosing actions.
 
 A previous production compatibility run passed **32/32 direct checks** against
 the deployed pre-fixture build. It used the real deployed

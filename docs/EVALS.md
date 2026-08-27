@@ -17,12 +17,12 @@ After deployment, prefer the documented Cloudflare Browser Run `--lab` wrapper
 as an additional independent native-runtime pass. It must execute the same
 fixture-only probe and stay separate from model-selection evidence. Do not turn
 on Cloudflare's automatic edge-injected WebMCP bridge for the submitted origins;
-the hand-written GroundedRelay tools are the product under evaluation.
+the hand-written BasketShipper tools are the product under evaluation.
 
 The prior rights-safe fixture candidate passed **42/42** direct native checks
 locally on the independent host. It includes exact product-to-variant binding, five
 grounded highlighted rows, viewport intersection, approve/veto behavior, and
-artifact validation. Rerun the final GroundedRelay tree locally and on the
+artifact validation. Rerun the final BasketShipper tree locally and on the
 exact final HTTPS deployment; neither direct result substitutes for the
 model-selection repetitions below.
 
@@ -91,7 +91,7 @@ HTTPS demo host, and no new page opens without a human click.
 - service-worker refresh and offline shell fallback
 - unauthorized embedding origin and wrong-window `postMessage`
 
-Public-production cases must use the GroundedRelay-owned fictional fixture. The
+Public-production cases must use the BasketShipper-owned fictional fixture. The
 entire tracked runtime is fixture-only.
 
 Record the exact model, date, host URL, provider URL, commit, pass count, and

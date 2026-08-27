@@ -5,13 +5,14 @@ import {
   rankProducts,
 } from "./catalogue.js";
 
-// GroundedRelay owns this fixture and every name below is fictional. It gives the
+// BasketShipper owns this fixture and every name below is fictional. It gives the
 // public submission a realistic, rights-safe catalogue without copying a
 // merchant's mark, product image, description, price, or customer data.
 export const RIGHTS_SAFE_MERCHANTS = Object.freeze([
   Object.freeze({
     id: "groundedrelay-demo-kigali",
-    name: "GroundedRelay Demo — Kigali Pantry",
+    handoffSlug: "groundedrelay-demo-kigali-pantry",
+    name: "BasketShipper Demo — Kigali Pantry",
     countryCode: "RW",
     countryName: "Rwanda",
     market: "RW",
@@ -21,7 +22,8 @@ export const RIGHTS_SAFE_MERCHANTS = Object.freeze([
   }),
   Object.freeze({
     id: "groundedrelay-demo-rift",
-    name: "GroundedRelay Demo — Rift Runworks",
+    handoffSlug: "groundedrelay-demo-rift-runworks",
+    name: "BasketShipper Demo — Rift Runworks",
     countryCode: "KE",
     countryName: "Kenya",
     market: "KE",
@@ -31,7 +33,8 @@ export const RIGHTS_SAFE_MERCHANTS = Object.freeze([
   }),
   Object.freeze({
     id: "groundedrelay-demo-accra",
-    name: "GroundedRelay Demo — Accra Carry Studio",
+    handoffSlug: "groundedrelay-demo-accra-carry-studio",
+    name: "BasketShipper Demo — Accra Carry Studio",
     countryCode: "GH",
     countryName: "Ghana",
     market: "GH",
@@ -167,6 +170,9 @@ export function createRightsSafeBackend({
 } = {}) {
   const merchantBase = safeMerchantBase(merchantOrigin);
   const catalogueItems = materialiseCatalogue(merchantBase);
+  const merchantByName = new Map(
+    RIGHTS_SAFE_MERCHANTS.map((merchant) => [merchant.name, merchant]),
+  );
   const knownItems = new Map();
   const basketLines = new Map();
   const storageKey = "groundedrelay.rights-safe-demo.v1";
@@ -412,15 +418,19 @@ export function createRightsSafeBackend({
     }
     return {
       message: "Demo merchant links are ready. This fixture cannot place an order or take payment.",
-      handoff: [...grouped.entries()].map(([store, items]) => ({
-        store,
-        items: [{
-          sku: `demo-handoff:${slug(store)}`,
-          name: "Open fictional merchant demo",
-          qty: items.reduce((sum, item) => sum + item.qty, 0),
-          url: `${merchantBase}#handoff=${encodeURIComponent(slug(store))}`,
-        }],
-      })),
+      handoff: [...grouped.entries()].map(([store, items]) => {
+        const handoffSlug = merchantByName.get(store)?.handoffSlug;
+        if (!handoffSlug) throw new Error(`Unknown fictional merchant ${store}`);
+        return {
+          store,
+          items: [{
+            sku: `demo-handoff:${handoffSlug}`,
+            name: "Open fictional merchant demo",
+            qty: items.reduce((sum, item) => sum + item.qty, 0),
+            url: `${merchantBase}#handoff=${encodeURIComponent(handoffSlug)}`,
+          }],
+        };
+      }),
     };
   };
   const state = () => {
@@ -440,12 +450,12 @@ export function createRightsSafeBackend({
       coverage: { configured: RIGHTS_SAFE_MERCHANTS.length, searched: RIGHTS_SAFE_MERCHANTS.length, unavailable: [] },
       preferences,
       lastQuery,
-      fixture: { rightsSafe: true, fictional: true, owner: "GroundedRelay" },
+      fixture: { rightsSafe: true, fictional: true, owner: "BasketShipper" },
     };
   };
 
   return {
-    label: "GroundedRelay-owned fictional demo · 3 catalogues",
+    label: "BasketShipper-owned fictional demo · 3 catalogues",
     capabilities: Object.freeze({
       listShops: true, search: true, compare: true, highlight: true,
       inspect: true, focus: true, shoppingState: true, setQuantity: true,

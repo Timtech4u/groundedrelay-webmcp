@@ -80,6 +80,6 @@ test("primary host waits for explicit approved and revision-valid resolution", a
 
 test("startup health check tracks the fictional-safe storefront shell", async () => {
   const script = await read("../scripts/start-local.sh");
-  assert.match(script, /<title>GroundedRelay — fictional shopping demo<\/title>/);
+  assert.match(script, /<title>BasketShipper — fictional shopping demo<\/title>/);
   assert.doesNotMatch(script, /shop across African brands/);
 });

@@ -35,7 +35,7 @@ let comparisonClearPending = false;
 let pendingVariantFocus = null;
 let totalProviderTools = 0;
 let pendingBasketMutation = false;
-// The submitted app has one truthful data mode: GroundedRelay's owned,
+// The submitted app has one truthful data mode: BasketShipper's owned,
 // fictional fixture. The shell and the provider must attest the same mode.
 let interactionBusy = false;
 const providerModeGate = createFictionalProviderGate(STOREFRONT_MODE.requireFictional);
@@ -45,15 +45,15 @@ const checkoutLifecycle = createCheckoutLifecycle();
 let checkoutReturnFocus = null;
 
 function applyExperienceCopy(configured = 0) {
-  document.title = "GroundedRelay — fictional shopping demo";
+  document.title = "BasketShipper — fictional shopping demo";
   $("catalogue-disclosure").hidden = false;
   $("catalogue-disclosure").textContent =
-    "Fictional judge demo — all names, products and prices are GroundedRelay-owned examples.";
+    "Fictional judge demo — all names, products and prices are BasketShipper-owned examples.";
   $("roster-summary").textContent = configured
-    ? `${configured} GroundedRelay-owned demo catalogue${configured === 1 ? "" : "s"} · market pinned`
-    : "GroundedRelay-owned fictional demo";
+    ? `${configured} BasketShipper-owned demo catalogue${configured === 1 ? "" : "s"} · market pinned`
+    : "BasketShipper-owned fictional demo";
   $("intro-copy").textContent =
-    "GroundedRelay compares visible evidence across fictional African catalogues. You see every result, basket change and handoff; checkout never leaves your control.";
+    "BasketShipper compares visible evidence across fictional African catalogues. You see every result, basket change and handoff; checkout never leaves your control.";
   $("journey-search").textContent = "Search fictional products";
   $("journey-compare").textContent = "Compare visible evidence";
   $("journey-review").textContent = "Review demo links";
@@ -65,12 +65,12 @@ function applyExperienceCopy(configured = 0) {
   $("search-submit").setAttribute("aria-label", "Search fictional products");
   $("results-eyebrow").textContent = "Fictional demo results";
   $("local-copy").textContent =
-    "GroundedRelay's fictional product fixture loads and ranks in your browser. GroundedRelay has no search server, crawler or analytics pipeline.";
+    "BasketShipper's fictional product fixture loads and ranks in your browser. BasketShipper has no search server, crawler or analytics pipeline.";
   $("brain").textContent = "fictional product search";
   $("rights-copy").textContent =
-    "Fictional content is GroundedRelay-owned; no partnership, endorsement or real offer is represented.";
+    "Fictional content is BasketShipper-owned; no partnership, endorsement or real offer is represented.";
   $("footer-copy").textContent =
-    "This public demo uses GroundedRelay-owned fictional data. It cannot contact a merchant, create an order or accept payment.";
+    "This public demo uses BasketShipper-owned fictional data. It cannot contact a merchant, create an order or accept payment.";
   renderQuick();
 }
 
@@ -260,7 +260,7 @@ function renderCatalog(catalog, cartSkus = new Set()) {
     if (catalogPhase === "loading") {
       setCatalogNotice(
         "Preparing the judge-demo catalogues",
-        "GroundedRelay-owned fictional products will appear here. You can search while this finishes.",
+        "BasketShipper-owned fictional products will appear here. You can search while this finishes.",
       );
       $("result-summary").textContent = "Loading products";
     } else if (catalogPhase === "empty") {
@@ -273,7 +273,7 @@ function renderCatalog(catalog, cartSkus = new Set()) {
     } else if (catalogPhase === "error") {
       setCatalogNotice(
         "Demo products could not be loaded",
-        "Try again. These fictional products come from GroundedRelay's owned judge-demo fixture.",
+        "Try again. These fictional products come from BasketShipper's owned judge-demo fixture.",
         { kind: "error", retry: true },
       );
       $("result-summary").textContent = "Products unavailable";
@@ -488,8 +488,8 @@ function activateInput(mode) {
   $("chat-input").placeholder = searchPlaceholder;
   setSearchBusy(false);
   $("search-help").textContent = mode === "agent"
-    ? "Ask naturally. GroundedRelay will keep product evidence and basket changes visible on this page."
-    : "Search terms are matched against GroundedRelay-owned fictional catalogue data on this device.";
+    ? "Ask naturally. BasketShipper will keep product evidence and basket changes visible on this page."
+    : "Search terms are matched against BasketShipper-owned fictional catalogue data on this device.";
   const queued = queuedPrompt;
   queuedPrompt = null;
   return queued;
@@ -586,7 +586,7 @@ function processProviderMessage(d) {
     if (!experience) {
       providerUnreachable(
         "The storefront refused a provider state that did not match its selected data mode.",
-        "Refresh the page; the provider must attest GroundedRelay-owned fictional data.");
+        "Refresh the page; the provider must attest BasketShipper-owned fictional data.");
       return;
     }
     const configured = Number(d.coverage?.configured ?? d.reachable?.length ?? 0);
@@ -653,7 +653,7 @@ function processProviderMessage(d) {
     if (totalProviderTools) {
       $("tool-summary").textContent = "Checking agent actions…";
       enableCatalogueSearch(
-        "Catalogue search is ready while GroundedRelay discovers optional WebMCP assistant actions.");
+        "Catalogue search is ready while BasketShipper discovers optional WebMCP assistant actions.");
       hoist();
     } else {
       if (providerCapabilities.search) {
@@ -761,7 +761,7 @@ function processProviderMessage(d) {
     }).join("");
     $("approval-title").textContent = "Review this fictional handoff?";
     $("approval-copy").textContent =
-      "GroundedRelay prepared demonstration links. Review the fictional basket; its currency totals are";
+      "BasketShipper prepared demonstration links. Review the fictional basket; its currency totals are";
     $("approval-fine").textContent =
       "No real merchant is contacted and no payment can be made. Approval reveals owned demo links only.";
     closeDrawer();
@@ -821,7 +821,7 @@ addEventListener("message", (e) => {
       pendingModeState = null;
       providerAnswered = false;
       providerUnreachable(
-        "The public storefront refused provider data that was not the GroundedRelay-owned fictional mode.",
+        "The public storefront refused provider data that was not the BasketShipper-owned fictional mode.",
         "Deploy the matching rights-safe provider and refresh this page.");
       return;
     }
@@ -928,7 +928,7 @@ function showHandoff(entries) {
   $("handoff-demo").hidden = false;
   $("handoff-title").textContent = "Open the fictional demo links";
   $("handoff-description").textContent =
-    "These GroundedRelay-owned links demonstrate a handoff. They cannot accept payment or create an order.";
+    "These BasketShipper-owned links demonstrate a handoff. They cannot accept payment or create an order.";
   handoffReturnFocus = document.activeElement;
   setPageInert(true);
   $("handoff").hidden = false;
@@ -1051,7 +1051,7 @@ function renderTrust(tools) {
     </div>`;
   }).join("") + `<div class="note">The implementation stays inside a static,
     cross-origin provider frame. The provider must explicitly allow this origin,
-    and the browser mediates every discovery and call. GroundedRelay exposes only the
+    and the browser mediates every discovery and call. BasketShipper exposes only the
     actions useful for the current search, comparison, and basket state.</div>`;
 }
 
@@ -1181,7 +1181,7 @@ async function hoist() {
     return;
   }
   // Do not trust discovery filtering alone. A browser/runtime bug or another
-  // registered foreign tool must never be hoisted under GroundedRelay's clean names.
+  // registered foreign tool must never be hoisted under BasketShipper's clean names.
   const foreign = tools.filter((tool) => tool.origin === EMBED_ORIGIN);
   if (!foreign.length) {
     activity("provider registered, but nothing crossed the boundary", "bad");
@@ -1211,7 +1211,7 @@ async function hoist() {
   if (agentInitialized) return;
   agentInitialized = true;
   enableCatalogueSearch(
-    "Local catalogue search is ready while GroundedRelay checks for an optional installed model.");
+    "Local catalogue search is ready while BasketShipper checks for an optional installed model.");
   try {
     const { initAgent } = await import("./agent.js");
     initAgent()

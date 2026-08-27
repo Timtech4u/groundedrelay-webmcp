@@ -261,7 +261,7 @@ const journeyExpression = `
     if (SCENARIO.dataMode) {
       check("fictional catalogue disclosure", shops.data_mode === SCENARIO.dataMode
         && /fictional/i.test(String(shops.data_notice))
-        && shops.shops.every((shop) => /^GroundedRelay Demo/.test(shop.name)),
+        && shops.shops.every((shop) => /^BasketShipper Demo/.test(shop.name)),
         JSON.stringify({ data_mode: shops.data_mode, notice: shops.data_notice,
           shops: shops.shops.map((shop) => shop.name) }));
     }

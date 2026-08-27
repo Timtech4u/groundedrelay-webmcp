@@ -1,13 +1,15 @@
-# GroundedRelay — cross-origin WebMCP embed kit
+# BasketShipper — cross-origin WebMCP shopping
 
-**One static embed lends useful agent actions to another origin, while the page
-keeps the evidence visible and checkout under human control.**
+**A grounded relay between shoppers, agents, and merchants.**
+
+One static embed lends useful agent actions to another origin, while the page
+keeps the evidence visible and consequential handoff under human control.
 
 Built for the [OpenAI WebMCP Challenge](https://openai.com/webmcp-challenge/)
 (submissions close 3 September 2026, 1pm PT).
 
 The source work began on 26 August 2026, one day after the challenge window
-opened. The clean, final-only GroundedRelay repository is public and verified
+opened. The clean, final-only BasketShipper source repository is public and verified
 with only challenge-period commits, no inherited private history, and passing
 deterministic and publication gates. The private development history is
 retained for organizer review if requested.
@@ -15,19 +17,33 @@ retained for organizer review if requested.
 **Public repository:**
 <https://github.com/Timtech4u/groundedrelay-webmcp>
 
+The existing repository and Cloudflare project slugs retain `groundedrelay` as
+a stable technical identifier. The shopper-facing product name is
+**BasketShipper**.
+
 ## What this is
 
-GroundedRelay is the submission product name. Africa is the catalogue scope.
-The tracked runtime always uses three GroundedRelay-owned fictional African
+BasketShipper is the submission product name. Africa is the catalogue scope.
+The tracked runtime always uses three BasketShipper-owned fictional African
 catalogues with six invented products, no third-party images, and demonstration
 links only. It contains no external catalogue code, named merchant roster, or
 merchant evidence. Earlier external-catalogue exploration is retired private
 history, not submission or runtime content.
 
+An exact web, npm, PyPI, GitHub repository-name, and
+`.com`/`.dev`/`.app`/`.io` DNS screen on 27 August 2026 found no direct exact
+BasketShipper software or product match. This is preliminary collision evidence,
+not legal advice, a comprehensive rights search, or trademark clearance.
+
 The architecture is a reusable WebMCP embed. A provider iframe on one static
-origin owns the actions; both the GroundedRelay storefront and a second independent
+origin owns the actions; both the BasketShipper storefront and a second independent
 static shop host can discover and hoist them. Neither host implements the
 provider logic. The provider exposes nine bounded actions:
+
+![BasketShipper high-level architecture](docs/assets/basketshipper-high-level-architecture.png)
+
+See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the diagram's boundaries,
+request flow, and deployment interpretation.
 
 - `list_shops`
 - `get_shopping_state`
@@ -108,7 +124,7 @@ the publication draft.
 
 ## What a shopper sees
 
-- Three visibly fictional, GroundedRelay-owned demo catalogues across Rwanda, Kenya,
+- Three visibly fictional, BasketShipper-owned demo catalogues across Rwanda, Kenya,
   and Ghana, using RWF, KES, and GHS without third-party product imagery.
 - Structured comparison rows and agent-selected evidence highlighted on the
   page. Recommendations are inspectable instead of disappearing into chat.
@@ -119,12 +135,12 @@ the publication draft.
 - Totals in the basket and approval view are grouped by ISO currency. Unlike currencies are
   never added into a fictional combined total.
 - A fictional-handoff call bound to the reviewed basket revision. It parks until
-  the person approves or vetoes it; approval reveals only GroundedRelay-owned demo
+  the person approves or vetoes it; approval reveals only BasketShipper-owned demo
   links and cannot complete a purchase.
 
 The UI is also a graceful enhancement. A browser-independent provider
 handshake makes the page usable as soon as the frame is alive. When the WebMCP
-page API is present, GroundedRelay discovers nine provider actions and hoists only the
+page API is present, BasketShipper discovers nine provider actions and hoists only the
 subset useful for the current search, comparison, and basket state. When it is
 absent, the same static provider still supports direct local search, compare,
 add/remove, and handoff controls through the page UI; the user is never held
@@ -134,9 +150,9 @@ behind a technical provider-loading state.
 
 There is no project backend. All three origins are static, and development uses
 only a local static-file server. Every environment loads the
-GroundedRelay-owned fixture and ranks it in the browser; it contacts no external
+BasketShipper-owned fixture and ranks it in the browser; it contacts no external
 shop. Query parameters cannot change the data source or runtime mode.
-GroundedRelay uses deterministic local search, an available on-device browser
+BasketShipper uses deterministic local search, an available on-device browser
 model, or the browser's native Site Tools agent. It does not collect or store
 model API keys.
 
@@ -193,7 +209,7 @@ The intended independent proof host is
 [https://groundedrelay-merchant.pages.dev](https://groundedrelay-merchant.pages.dev). Do not
 describe this target architecture as deployed until all three exact URLs pass a
 signed-out, commit-bound smoke test. In the release contract, public HTTPS uses
-only the GroundedRelay-owned fictional fixture.
+only the BasketShipper-owned fictional fixture.
 
 All three projects are static Cloudflare Pages deployments:
 
@@ -230,7 +246,7 @@ The command creates and closes a short-lived `--lab` session and never persists
 its WebSocket endpoint. It requires an explicitly authorized Wrangler login.
 This is an additional direct native API check, not model-selection proof or a
 production dependency. Keep Cloudflare's automatic edge-injected WebMCP bridge
-disabled: GroundedRelay's own state-aware tools are the submitted implementation.
+disabled: BasketShipper's own state-aware tools are the submitted implementation.
 
 ## Layout
 
@@ -240,7 +256,7 @@ sites/storefront/      shopper UI, discovery/hoisting, fallback, human veto
   store.js             provider handshake, rendering, direct controls, checkout
   agent.js             in-page assistant and interchangeable model backends
 sites/embed/           provider frame and all action implementations
-  backends/demo.js     GroundedRelay-owned fictional public fixture
+  backends/demo.js     BasketShipper-owned fictional public fixture
 sites/merchant-demo/   independent static host using the same provider
 docs/AFRICA-FIRST.md   authoritative product and rights decision record
 spike/FINDINGS.md      measured WebMCP browser behaviour

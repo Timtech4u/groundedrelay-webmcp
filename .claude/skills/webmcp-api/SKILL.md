@@ -1,9 +1,9 @@
 ---
 name: webmcp-api
-description: Implement or review GroundedRelay's measured WebMCP contract: a fixture-only cross-origin provider, collision-safe wire-to-clean hoisting, JSON-text proxy input, state-aware actions, rights-safe attestations, graceful fallback, and human-gated merchant handoff.
+description: Implement or review BasketShipper's measured WebMCP contract: a fixture-only cross-origin provider, collision-safe wire-to-clean hoisting, JSON-text proxy input, state-aware actions, rights-safe attestations, graceful fallback, and human-gated merchant handoff.
 ---
 
-# GroundedRelay WebMCP contract
+# BasketShipper WebMCP contract
 
 Read `AGENTS.md`, `docs/AFRICA-FIRST.md`, and `spike/FINDINGS.md` before changing
 the protocol. The findings record browser behaviour measured in this repository;
@@ -11,7 +11,7 @@ do not replace them with assumptions from a different WebMCP revision.
 
 ## Fixed public runtime
 
-GroundedRelay has three static origins:
+BasketShipper has three static origins:
 
 - storefront: `https://groundedrelay.pages.dev`;
 - provider: `https://groundedrelay-provider.pages.dev`; and
@@ -19,7 +19,7 @@ GroundedRelay has three static origins:
 
 The root page is the sole runtime. URL parameters are ignored and cannot choose
 another provider or data source. The tracked runtime and public judge path always
-use three GroundedRelay-owned fictional African catalogues with six invented
+use three BasketShipper-owned fictional African catalogues with six invented
 products, no third-party imagery, and demo-only handoff links. Do not add an
 external catalogue, network search, server API, secret, or alternate data mode.
 
@@ -78,7 +78,7 @@ await modelContext.registerTool(
 The readiness handshake must not depend on WebMCP availability. A browser
 without the page API still receives provider state and can use direct search,
 comparison, basket, and handoff controls instead of waiting indefinitely. Both
-hosts require matching protocol-2 `ready` and GroundedRelay-owned fictional
+hosts require matching protocol-2 `ready` and BasketShipper-owned fictional
 `state` attestations before trusting the frame.
 
 ## Collision-safe hoisting

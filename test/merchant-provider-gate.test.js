@@ -7,7 +7,7 @@ const ready = { protocol: 2, dataMode: "fictional", fictional: true };
 const state = {
   dataMode: "fictional",
   fictional: true,
-  fixture: { rightsSafe: true, fictional: true, owner: "GroundedRelay" },
+  fixture: { rightsSafe: true, fictional: true, owner: "BasketShipper" },
 };
 
 test("independent host waits for both fictional attestations in either order", () => {

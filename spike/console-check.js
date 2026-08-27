@@ -27,7 +27,7 @@
   const mc = document.modelContext || navigator.modelContext;
 
   if (!mc) {
-    console.log("SKIP WebMCP: this browser is using GroundedRelay's direct local-search fallback");
+    console.log("SKIP WebMCP: this browser is using BasketShipper's direct local-search fallback");
     return;
   }
 

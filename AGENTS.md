@@ -1,14 +1,17 @@
 # Working in this repository
 
-GroundedRelay is a cross-origin WebMCP kit: one static origin lends agent actions to
-another. Africa is the current catalogue scope, not part of the product name.
-Read `README.md` first, `docs/AFRICA-FIRST.md` for the authoritative hackathon
-decision record, and `spike/FINDINGS.md` for browser behaviour that was measured
-rather than assumed.
+BasketShipper is a cross-origin WebMCP kit: one static origin lends agent actions to
+another. Its tagline is “A grounded relay between shoppers, agents, and
+merchants.” Africa is the current catalogue scope, not part of the product
+name. The existing `groundedrelay` repository, deployment, and storage slugs
+are stable technical identifiers, not the visible brand. Read `README.md`
+first, `docs/AFRICA-FIRST.md` for the authoritative hackathon decision record,
+`docs/ARCHITECTURE.md` for the high-level system diagram, and
+`spike/FINDINGS.md` for browser behaviour that was measured rather than assumed.
 
 ## Current product context
 
-- Public HTTPS always uses three GroundedRelay-owned fictional African catalogues with
+- Public HTTPS always uses three BasketShipper-owned fictional African catalogues with
   six invented products, no third-party imagery, and demo-only handoff links.
 - This is not a “top merchant” ranking, partnership, integration, or
   endorsement.
@@ -28,6 +31,9 @@ rather than assumed.
 - Comparison is structured and its supporting fields are visibly highlighted.
 - Public judge data and the tracked runtime use only the static owned fixture;
   search and ranking are local. Do not add an external data source.
+- The restored BasketShipper name passed an exact web, npm, PyPI, GitHub
+  repository-name, and `.com`/`.dev`/`.app`/`.io` DNS screen on 27 August 2026.
+  This is preliminary collision evidence, not trademark clearance.
 
 ## Layout
 
@@ -37,9 +43,10 @@ sites/storefront/      shopper page; handshake, discovery/hoisting, fallback, ve
   store.js             rendering, direct controls, basket, human checkout gate
   agent.js             in-page assistant and interchangeable model backends
 sites/embed/           provider; owns every action implementation
-  backends/demo.js     GroundedRelay-owned fictional public fixture
+  backends/demo.js     BasketShipper-owned fictional public fixture
 sites/merchant-demo/   independent static host proving provider portability
 docs/AFRICA-FIRST.md   product thesis, rights boundary, acceptance gates
+docs/ARCHITECTURE.md   high-level diagram, trust boundaries, deployment meaning
 docs/codex.md          trying the cross-origin tools from Codex/ChatGPT
 spike/FINDINGS.md      measured browser behaviour
 ```
@@ -76,7 +83,7 @@ spike/FINDINGS.md      measured browser behaviour
 11. **Comparisons stay grounded.** Compare only returned catalogue/metadata
     fields. Highlight accepts known row keys rather than free-form claims. Clear
     stale comparison state on a new search or explicit human clear action.
-12. **Claim discipline.** Call public data GroundedRelay-owned and fictional.
+12. **Claim discipline.** Call public data BasketShipper-owned and fictional.
     Approval is not proof of an order; local code is not production
     until explicitly deployed and smoke-tested.
 
@@ -140,7 +147,7 @@ For the final deployed native rerun, `npm run check:native:cloudflare` may use a
 short-lived Cloudflare Browser Run `--lab` session as independent evidence. It
 passes the WebSocket endpoint only in process memory and closes the session.
 Do not enable Cloudflare's automatic edge-injected WebMCP bridge on the three
-submitted origins: GroundedRelay's hand-written state-aware tools are the
+submitted origins: BasketShipper's hand-written state-aware tools are the
 submission, and an injected pack would create a conflicting surface.
 
 The current development repository must remain private: reachable history has

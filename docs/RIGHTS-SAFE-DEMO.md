@@ -1,44 +1,44 @@
 # Rights-safe public demo and provider portability proof
 
 Status: **implemented locally; not deployed**
-Owner: GroundedRelay
+Owner: BasketShipper
 Last reviewed: 26 August 2026
 
 ## Decision
 
 The public hackathon build and the entire tracked runtime use a
-GroundedRelay-owned fictional catalogue. Root is the sole mode; query overrides
+BasketShipper-owned fictional catalogue. Root is the sole mode; query overrides
 are ignored and cannot select another backend.
 
 This is the safe release path after choosing not to conduct external merchant
 outreach. It does not imply affiliation with any real catalogue or that a basic
 name-collision search is trademark clearance.
 
-Every public surface must call the data a **GroundedRelay-owned fictional judge
+Every public surface must call the data a **BasketShipper-owned fictional judge
 sandbox**. Do not describe its merchants, products, prices, availability,
 delivery coverage, or links as live offers.
 
-Exact web, npm, PyPI, GitHub repository-name, and
-`.com`/`.dev`/`.app`/`.io` DNS screens on 2026-08-26 found no direct
-GroundedRelay software or product match. That is a preliminary collision screen
-only, not legal advice or trademark clearance. Formal trademark clearance is
-not claimed; prominent fictional ownership labelling and the final terms/name
-review remain mandatory.
+An exact web, npm, PyPI, GitHub repository-name, and
+`.com`/`.dev`/`.app`/`.io` DNS screen on 27 August 2026 found no direct exact
+BasketShipper software or product match. This is preliminary collision evidence,
+not legal advice, a comprehensive rights search, or trademark clearance.
+Prominent fictional ownership labelling and the final terms review remain
+mandatory.
 
 ## Owned fixture
 
-GroundedRelay wrote every name, field, price, variant, and delivery code in
+BasketShipper wrote every name, field, price, variant, and delivery code in
 [`sites/embed/backends/demo.js`](../sites/embed/backends/demo.js). The fixture
 uses no product images, logos, reviews, copied descriptions, customer data, or
 remote catalogue requests.
 
 | Fictional catalogue | Demo country | Demo market | Currency | Products |
 | --- | --- | --- | --- | --- |
-| GroundedRelay Demo — Kigali Pantry | Rwanda | RW | RWF | Family Egg Tray; Weekend Egg Box |
-| GroundedRelay Demo — Rift Runworks | Kenya | KE | KES | Nyota Road Running Shoe; Bonde Trail Running Shoe |
-| GroundedRelay Demo — Accra Carry Studio | Ghana | GH | GHS | Asa Canvas Weekender; Cocoa Grid Carryall |
+| BasketShipper Demo — Kigali Pantry | Rwanda | RW | RWF | Family Egg Tray; Weekend Egg Box |
+| BasketShipper Demo — Rift Runworks | Kenya | KE | KES | Nyota Road Running Shoe; Bonde Trail Running Shoe |
+| BasketShipper Demo — Accra Carry Studio | Ghana | GH | GHS | Asa Canvas Weekender; Cocoa Grid Carryall |
 
-The products deliberately exercise the hard parts of the GroundedRelay contract:
+The products deliberately exercise the hard parts of the BasketShipper contract:
 
 - the first Nyota variant is unavailable, so the visible default must skip it;
 - inspection exposes exact shoe sizes and product options;
@@ -55,7 +55,7 @@ demonstration evidence.
 
 The provider accepts two local host origins:
 
-- `http://localhost:5173` for the main GroundedRelay host; and
+- `http://localhost:5173` for the main BasketShipper host; and
 - `http://localhost:5175` for the independent portability host.
 
 Every allowed caller selects `createRightsSafeBackend()`. Query parameters do
@@ -72,7 +72,7 @@ Agent-facing JSON also includes:
 
 ```text
 data_mode: fictional_judge_demo
-data_notice: GroundedRelay-owned fictional catalogue; not a real merchant, offer, or order flow.
+data_notice: BasketShipper-owned fictional catalogue; not a real merchant, offer, or order flow.
 ```
 
 This prevents a small agent from turning an internal fixture into a claim about
@@ -110,7 +110,7 @@ The fixture adds capability-object checks beyond schema validation:
 - highlight accepts only rows in the rendered comparison.
 
 The handoff has no checkout implementation. Approval returns links to the
-GroundedRelay-owned merchant-demo host; veto rejects the pending call and retains the
+BasketShipper-owned merchant-demo host; veto rejects the pending call and retains the
 basket. Neither path opens a page automatically.
 
 ## Independent host proof
@@ -142,7 +142,7 @@ npm start
 
 The development process serves three static origins with live reload:
 
-- GroundedRelay storefront: `http://localhost:5173/`
+- BasketShipper storefront: `http://localhost:5173/`
 - WebMCP provider: `http://localhost:5174/embed`
 - independent rights-safe host: `http://localhost:5175/`
 
@@ -171,7 +171,7 @@ stale revisions, veto, approval, two owned handoff links, screenshot artifact
 validation, cleanup, positive viewport-intersecting rendered bounds, and no
 automatic page opening. See
 [`NATIVE-WEBMCP-EVIDENCE.md`](NATIVE-WEBMCP-EVIDENCE.md). Rerun the final
-GroundedRelay tree; this remains historical local contract evidence, not final
+BasketShipper tree; this remains historical local contract evidence, not final
 HTTPS evidence or language-model selection evidence.
 
 ## Deployment plan—do not skip the order

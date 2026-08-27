@@ -1,4 +1,4 @@
-# GroundedRelay final submission checklist
+# BasketShipper final submission checklist
 
 Status: **NO-GO until every P0 gate is green**
 
@@ -21,7 +21,7 @@ Do not change a status to PASS without recording evidence. Any P0 failure means
 | P0 | Entrant registered and eligible | PASS — acceptance email reported | Saved acceptance email; entrant/team names match Devpost |
 | P0 | Public source repository | **PASS — one-commit sanitized public `main` is synchronized** | Signed-out browser and raw README return 200 |
 | P0 | Detectable open-source license | **PASS — MIT detected** | GitHub repository header visibly shows MIT while signed out |
-| P0 | Rights-safe working live app, free during judging | **NOT DEPLOYED** | Signed-out production shows only the GroundedRelay-owned fictional fixture |
+| P0 | Rights-safe working live app, free during judging | **NOT DEPLOYED** | Signed-out production shows only the BasketShipper-owned fictional fixture |
 | P0 | Native WebMCP runtime on submitted URL | HISTORICAL LOCAL FIXTURE PROOF 42/42; **FINAL LOCAL AND PRODUCTION RERUNS REQUIRED** | Exact-deployed-commit capture of `modelContext`, discovery, execution, and UI |
 | P0 | Model-selected public journey | **UNVERIFIED** | Latest ChatGPT desktop records the exact GPT-5.6 Sol or Terra model completing the demo sequence without manual substitution |
 | P0 | Public data/name/image/video rights | TRACKED CANDIDATE PASS; **final review pending** | Owned fixture inventory plus terms/name review; no external merchant evidence in the submitted tree or media |
@@ -55,7 +55,7 @@ update. GitHub Actions remains optional/manual supplemental evidence.
 - [ ] No second submission violates the one-submission rule.
 - [x] The submission says source work began on 26 August 2026, inside the
       25 August–3 September build window.
-- [x] The GroundedRelay public repository's first clean commit was created
+- [x] The BasketShipper public repository's first clean commit was created
       inside the build window. That first-commit evidence SHA is
       `cce50221b3098079b5810dda0de50438f376c650`. Do not cite private
       commit hashes.
@@ -63,14 +63,14 @@ update. GitHub Actions remains optional/manual supplemental evidence.
       do not publish it or expose its personal metadata/private research.
 - [ ] All submitted code, copy, screenshots, voice, and visual assets are owned
       or licensed for this use.
-- [x] Published GroundedRelay source uses the owned fixture with fictional merchant names,
+- [x] Published BasketShipper source uses the owned fixture with fictional merchant names,
       products, descriptions, variants, prices, and demo links; it includes no
       copied merchant imagery or customer data.
-- [x] Exact web, npm, PyPI, GitHub repository-name, and
-      `.com`/`.dev`/`.app`/`.io` DNS screens on 2026-08-26 found no direct
-      **GroundedRelay** software or product match. This is only a preliminary
-      collision screen, not a legal opinion or trademark clearance.
-- [ ] Complete the final naming/terms review for **GroundedRelay**, **Kigali Pantry**,
+- [x] An exact web, npm, PyPI, GitHub repository-name, and
+      `.com`/`.dev`/`.app`/`.io` DNS screen on 27 August 2026 found no direct
+      exact **BasketShipper** software or product match. This is preliminary
+      collision evidence, not a legal opinion or trademark clearance.
+- [ ] Complete the final naming/terms review for **BasketShipper**, **Kigali Pantry**,
       **Rift Runworks**, **Accra Carry Studio**, **Family Egg Tray**, **Weekend
       Egg Box**, **Nyota Road Running Shoe**, **Bonde Trail Running Shoe**,
       **Asa Canvas Weekender**, and **Cocoa Grid Carryall**.
@@ -87,10 +87,10 @@ update. GitHub Actions remains optional/manual supplemental evidence.
 
 - [x] Keep the current development repository private. Do not rewrite it or
       change its visibility for submission.
-- [x] Export the final GroundedRelay tracked tree into a fresh directory without `.git`,
+- [x] Export the final BasketShipper tracked tree into a fresh directory without `.git`,
       `.local`, ignored research artifacts, `.claude/settings.local.json`,
       private correspondence, generated captures, or local machine paths.
-- [x] Confirm the export contains only the GroundedRelay-owned fictional fixture;
+- [x] Confirm the export contains only the BasketShipper-owned fictional fixture;
       it contains no named external merchant,
       domain, product, response, screenshot, or outreach record.
 - [x] Create `Timtech4u/groundedrelay-webmcp` as an empty remote without generated
@@ -136,7 +136,7 @@ update. GitHub Actions remains optional/manual supplemental evidence.
 - [ ] Public HTTPS and loopback root use `createRightsSafeBackend`; query
       overrides are ignored and cannot select another backend.
 - [ ] The page visibly says **Fictional judge demo** and identifies all names,
-      products, prices, and links as GroundedRelay-owned examples.
+      products, prices, and links as BasketShipper-owned examples.
 - [ ] Exactly three demo catalogues render: Kigali Pantry (`RWF`), Rift Runworks
       (`KES`), and Accra Carry Studio (`GHS`).
 - [ ] `npm run check:release -- --code-only --online` fetches the deployed
@@ -216,7 +216,7 @@ update. GitHub Actions remains optional/manual supplemental evidence.
 
 ## P0 — Devpost form
 
-- [ ] Project name is **GroundedRelay** and product name never includes “Africa.”
+- [ ] Project name is **BasketShipper** and product name never includes “Africa.”
 - [ ] Tagline and all four required answers come from
       [`SUBMISSION.md`](SUBMISSION.md).
 - [ ] Live URL is exactly <https://groundedrelay.pages.dev> with no query parameter.

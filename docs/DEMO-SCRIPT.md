@@ -1,4 +1,4 @@
-# GroundedRelay demo script and capture plan
+# BasketShipper demo script and capture plan
 
 Status: **rehearsal-ready, recording blocked by release gates**
 
@@ -6,12 +6,12 @@ Target runtime: **2 minutes 45 seconds**
 
 Hard limit: **less than 3 minutes, including titles and credits**
 
-The submitted product name is **GroundedRelay**.
+The submitted product name is **BasketShipper**.
 
 The official rules require a public YouTube video with audio and allow judges
 to evaluate the submission without opening the app. The video must therefore
 show the customer outcome, the WebMCP proof, and the human-agent boundary on
-screen. The submitted experience uses only GroundedRelay-owned fictional merchant
+screen. The submitted experience uses only BasketShipper-owned fictional merchant
 names, products, prices, and demo links. Retired private external-catalogue work must not
 appear anywhere in the capture. Do not use copyrighted music.
 
@@ -26,7 +26,7 @@ appear anywhere in the capture. Do not use copyrighted music.
   use GPT-5.6 Luna for this proof because WebMCP is currently disabled there.
 - Start from a fresh page with an empty basket and no stale comparison.
 - Confirm the page visibly says **Fictional judge demo** and exposes exactly
-  three GroundedRelay-owned demo catalogues. If any external catalogue appears, stop.
+  three BasketShipper-owned demo catalogues. If any external catalogue appears, stop.
 - Verify all three HTTPS origins, including provider discovery from both host
   pages, and the complete prompts below in a rehearsal immediately before
   capture.
@@ -78,9 +78,9 @@ public narrated YouTube demo.
 
 | Time | Screen | Narration |
 | --- | --- | --- |
-| 0:00–0:10 | GroundedRelay hero and public URL | “Shopping agents can answer, but can you inspect what they did and stop them before anything consequential happens? This is GroundedRelay.” |
-| 0:10–0:27 | Open **How it works**; show provider origin and available actions | “A static provider on a different HTTPS origin lends typed WebMCP actions to this storefront. The browser mediates the boundary; there is no GroundedRelay backend or hidden search service.” |
-| 0:27–0:40 | Show **Fictional judge demo**, three demo catalogues, and no product imagery | “Every public merchant, product, price, and link here is a GroundedRelay-owned fictional example.” |
+| 0:00–0:10 | BasketShipper hero and public URL | “Shopping agents can answer, but can you inspect what they did and stop them before anything consequential happens? This is BasketShipper.” |
+| 0:10–0:27 | Open **How it works**; show provider origin and available actions | “A static provider on a different HTTPS origin lends typed WebMCP actions to this storefront. The browser mediates the boundary; there is no BasketShipper backend or hidden search service.” |
+| 0:27–0:40 | Show **Fictional judge demo**, three demo catalogues, and no product imagery | “Every public merchant, product, price, and link here is a BasketShipper-owned fictional example.” |
 | 0:40–1:10 | Send Prompt 1; keep tool activity and rendered results visible | “The agent works on the same page state I see and resolves exact available variants instead of guessing from product titles.” |
 | 1:10–1:33 | Comparison renders; highlighted rows remain in frame | “The comparison is constrained to observed fixture fields. The agent can highlight known rows, but it cannot invent a free-form claim.” |
 | 1:33–1:58 | Send Prompt 2; two basket groups and separate KES/GHS totals render | “Now it sets exact quantities in our shared, revisioned basket. The currencies stay separate, and a stale action cannot overwrite a newer human edit.” |
@@ -93,17 +93,17 @@ Do not narrate a price or total. Let the current live UI show it.
 
 ## YouTube copy
 
-**Title:** GroundedRelay — cross-origin WebMCP shopping with a human veto
+**Title:** BasketShipper — cross-origin WebMCP shopping with a human veto
 
 **Description:**
 
-> GroundedRelay lets a person and an agent share catalogue search, grounded
+> BasketShipper lets a person and an agent share catalogue search, grounded
 > comparison evidence, exact basket state, and a human-gated merchant handoff.
 > This OpenAI WebMCP Challenge demo runs across three static Cloudflare origins,
 > with one provider reused by two independent hosts. The agent can prepare the
 > next step, but it cannot navigate or purchase on its own. All public merchants,
 > products, prices, and handoff links are
-> GroundedRelay-owned fictional examples.
+> BasketShipper-owned fictional examples.
 >
 > Try it: https://groundedrelay.pages.dev
 >
@@ -136,7 +136,7 @@ run passes. A screenshot is evidence only if its URL, state, and date are known.
 
 For every file, record: screenshot ID, UTC timestamp, production commit, app
 URL, provider URL, merchant-demo URL, browser/runtime, model, prompt, and
-confirmation that the page was in GroundedRelay-owned fictional mode. Never capture
+confirmation that the page was in BasketShipper-owned fictional mode. Never capture
 email, Slack, Devpost account details, tokens, browser profiles, or private
 correspondence.
 
@@ -149,7 +149,7 @@ correspondence.
 - The recording shows the native agent prompt and resulting page mutation in
   the same continuous sequence.
 - Any cuts are simple dead-time removals and do not misrepresent causality.
-- Captions are corrected manually for “WebMCP,” “GroundedRelay,” “Nyota,” “Asa,”
+- Captions are corrected manually for “WebMCP,” “BasketShipper,” “Nyota,” “Asa,”
   “KES,” and “GHS.”
 - Final duration is checked after YouTube processing and remains below 3:00.
 - YouTube visibility is **Public**, not Unlisted, Private, or premiere-only.

@@ -7,8 +7,10 @@ claims.
 
 ## Winning thesis
 
+**BasketShipper — a grounded relay between shoppers, agents, and merchants.**
+
 **One cross-origin provider gives independent static hosts a truthful agent tool
-surface. Public judging uses GroundedRelay-owned fictional African catalogues; search
+surface. Public judging uses BasketShipper-owned fictional African catalogues; search
 and ranking happen in the browser, comparison evidence appears on the page, and
 the handoff cannot proceed without a person.**
 
@@ -22,19 +24,19 @@ The differentiator is not “an AI shopping chat.” It is the combination of:
 5. a merchant-handoff call that visibly parks for human approval and can be
    vetoed.
 
-Public copy must say **GroundedRelay-owned fictional demo**. The submitted tree
+Public copy must say **BasketShipper-owned fictional demo**. The submitted tree
 has no real-merchant roster, named merchant research, or external-catalogue
 runtime. The tracked runtime is fixture-only.
 
-The submission product is **GroundedRelay**. Production uses
+The submission product is **BasketShipper**. Production uses
 `groundedrelay.pages.dev`, `groundedrelay-provider.pages.dev`, and
 `groundedrelay-merchant.pages.dev`; the verified public repository is
 `Timtech4u/groundedrelay-webmcp`. The Pages targets are not yet deployed.
 
-Exact web, npm, PyPI, GitHub repository-name, and
-`.com`/`.dev`/`.app`/`.io` DNS screens on 2026-08-26 found no direct
-GroundedRelay software or product match. This is a preliminary collision screen,
-not legal advice or trademark clearance.
+An exact web, npm, PyPI, GitHub repository-name, and
+`.com`/`.dev`/`.app`/`.io` DNS screen on 27 August 2026 found no direct exact
+BasketShipper software or product match. This is preliminary collision evidence,
+not legal advice, a comprehensive rights search, or trademark clearance.
 
 ## Current WebMCP contract
 
@@ -50,7 +52,7 @@ reports the active clean subset, not the provider capability total.
 
 ## The one-minute production judge story
 
-The submitted HTTPS site uses three GroundedRelay-owned fictional catalogues. Use a
+The submitted HTTPS site uses three BasketShipper-owned fictional catalogues. Use a
 request the fixture can complete and let the page do the talking:
 
 > Search `fictional` with Rwanda as the delivery destination. Inspect and compare
@@ -112,7 +114,7 @@ and enforces a cross-origin human veto.
 general pattern of reusing existing application operations with narrow schemas
 and explicit side effects.
 
-## Public GroundedRelay-owned fixture
+## Public BasketShipper-owned fixture
 
 Public HTTPS exposes exactly three fictional catalogues and six invented
 products. No third-party product image, description, price, customer data, or
@@ -123,7 +125,7 @@ shared state. Query overrides are ignored; the root experience is the sole mode.
 
 ## Privacy boundary: fixture-only runtime
 
-GroundedRelay loads owned static data and ranks it locally. It does not contact
+BasketShipper loads owned static data and ranks it locally. It does not contact
 an external merchant. Earlier external-catalogue experiments are retired private
 history; they are deleted from the tracked runtime and are not submission
 features or evidence.

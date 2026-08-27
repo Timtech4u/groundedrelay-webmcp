@@ -1,4 +1,4 @@
-# GroundedRelay winning build
+# BasketShipper winning build
 
 Status: implementation specification and acceptance contract for the OpenAI
 WebMCP Challenge. This document is authoritative when product copy, tool names,
@@ -6,7 +6,7 @@ or demo scripts disagree.
 
 ## Product thesis
 
-GroundedRelay is a cross-origin WebMCP capability layer for independent merchants. A
+BasketShipper is a cross-origin WebMCP capability layer for independent merchants. A
 static provider lends grounded commerce actions to allowed hosts. The agent and
 shopper collaborate in the same visible search, comparison, and basket state;
 every handoff stops for the person.
@@ -18,7 +18,7 @@ intent -> catalogue search -> exact variant inspection -> visible evidence
        -> shared basket -> human/agent correction -> reviewed demo links
 ```
 
-GroundedRelay never completes payment, combines currencies, invents delivery claims,
+BasketShipper never completes payment, combines currencies, invents delivery claims,
 or pretends its fictional public handoff is a merchant checkout.
 
 ## WebMCP surface
@@ -101,11 +101,10 @@ when the page shows the complete result set.
 
 - Public repository and an approved open-source license.
 - Public data, names, products, prices, and links come from the
-  GroundedRelay-owned fictional fixture. Exact web, npm, PyPI, GitHub
-  repository-name, and `.com`/`.dev`/`.app`/`.io` DNS screens on 2026-08-26
-  found no direct GroundedRelay software or product match. This is a preliminary
-  collision screen, not legal or trademark clearance; complete the final
-  terms/name review without claiming formal clearance.
+  BasketShipper-owned fictional fixture. An exact web, npm, PyPI, GitHub
+  repository-name, and `.com`/`.dev`/`.app`/`.io` DNS screen on 27 August 2026
+  found no direct exact BasketShipper software or product match. This is
+  preliminary collision evidence, not legal or trademark clearance.
 - All three HTTPS origins deploy without an authentication wall.
 - Exact submitted URLs pass deterministic checks and direct native WebMCP API
   checks; model-selected tool journeys are recorded separately.

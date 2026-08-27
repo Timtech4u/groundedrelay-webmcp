@@ -1,7 +1,7 @@
 # Spike findings — Chrome 151.0.7922.174, `enable-webmcp-testing`
 
 > Historical measurement note: the original spike below exercised five tools.
-> The current GroundedRelay contract exposes nine clean tools and nine `wire__` tools;
+> The current BasketShipper contract exposes nine clean tools and nine `wire__` tools;
 > use `spike/console-check.js` and `docs/EVALS.md` for the current acceptance set.
 
 **Verdict: GO.** Cross-origin tool sharing and the hoist both work. Every claim
@@ -69,7 +69,7 @@ profile, `WebMCPTesting`, and CDP. The reusable probe is
 
 This was retired private pre-fixture external-catalogue work. Keep it only as a
 timestamped runtime baseline, not as final submission evidence; the
-GroundedRelay-owned fictional deployment requires its own fresh run.
+BasketShipper-owned fictional deployment requires its own fresh run.
 
 - All 32 native-contract and rendered-flow checks passed.
 - The provider exposed nine `wire__*` actions from its separate private origin;
@@ -95,7 +95,7 @@ actions from a natural-language prompt.
 
 ## Rights-safe local candidate — 26 August 2026
 
-The prior rights-safe fixture candidate, before the GroundedRelay rename, was
+The prior rights-safe fixture candidate, before the BasketShipper rename, was
 measured against the independent static host on `http://localhost:5175` and provider on
 `http://localhost:5174` in the same isolated Chrome 151 environment. All **41
 of 41** native-contract and rendered-flow checks passed.

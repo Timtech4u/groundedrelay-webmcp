@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>GroundedRelay — fictional shopping demo</title>
+<title>BasketShipper — fictional shopping demo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="./store.css">
 <link rel="manifest" href="./manifest.webmanifest">
@@ -15,7 +15,7 @@
 
 <header>
   <div class="wrap bar">
-    <a class="logo" href="./">GroundedRelay</a>
+    <a class="logo" href="./">BasketShipper</a>
     <div class="conn">
       <span id="status" class="status" role="status" aria-live="polite" hidden></span>
       <button id="advanced-open" class="nav-button" type="button"
@@ -28,13 +28,14 @@
 
 <main class="wrap">
   <section class="intro">
-    <p id="roster-summary" class="eyebrow">GroundedRelay-owned fictional demo</p>
+    <p class="product-tagline">A grounded relay between shoppers, agents, and merchants.</p>
+    <p id="roster-summary" class="eyebrow">BasketShipper-owned fictional demo</p>
     <p id="catalogue-disclosure" class="demo-disclosure" role="note">Fictional judge demo — all names,
-       products and prices are GroundedRelay-owned examples.</p>
+       products and prices are BasketShipper-owned examples.</p>
     <h1>Shop with an agent.<br>Keep the final say.</h1>
-    <p id="intro-copy">GroundedRelay compares visible evidence across fictional African
+    <p id="intro-copy">BasketShipper compares visible evidence across fictional African
        catalogues. You see every result, basket change and handoff; checkout never leaves your control.</p>
-    <ol class="journey" aria-label="How shopping with GroundedRelay works">
+    <ol class="journey" aria-label="How shopping with BasketShipper works">
       <li><span>1</span> <span id="journey-search">Search fictional products</span></li>
       <li><span>2</span> <span id="journey-compare">Compare visible evidence</span></li>
       <li><span>3</span> <span id="journey-review">Review demo links</span></li>
@@ -68,7 +69,7 @@
       <form id="chat-form" class="chat-form" role="search">
         <input id="chat-input" type="search" autocomplete="off"
                placeholder="Try “fictional eggs in Rwanda” or “fictional running shoes”"
-               aria-label="Search with GroundedRelay" aria-describedby="search-help">
+               aria-label="Search with BasketShipper" aria-describedby="search-help">
         <button id="search-cancel" class="search-cancel" type="button" hidden>Cancel</button>
         <button id="search-submit" type="submit" aria-label="Search fictional products">Search</button>
       </form>
@@ -101,7 +102,7 @@
       <div id="catalog-notice" class="catalog-notice" role="status" aria-live="polite">
         <div>
           <strong id="catalog-notice-title">Preparing fictional products</strong>
-          <p id="catalog-notice-copy">GroundedRelay-owned examples will appear here.</p>
+          <p id="catalog-notice-copy">BasketShipper-owned examples will appear here.</p>
         </div>
         <button id="catalog-reload" class="ghost" type="button" hidden>Try again</button>
       </div>
@@ -130,14 +131,14 @@
   <aside id="advanced-drawer" class="drawer" role="dialog" aria-modal="true"
          aria-labelledby="drawer-title">
     <div class="drawer-head">
-      <div><span class="eyebrow">Under the hood</span><h2 id="drawer-title">How GroundedRelay works</h2></div>
+      <div><span class="eyebrow">Under the hood</span><h2 id="drawer-title">How BasketShipper works</h2></div>
       <button id="advanced-close" class="icon-button" type="button" aria-label="Close">×</button>
     </div>
 
     <section class="drawer-section">
       <h3 id="local-title">Local by design</h3>
-      <p id="local-copy">GroundedRelay's fictional product fixture loads and ranks in your browser.
-         GroundedRelay has no search server, crawler or analytics pipeline.</p>
+      <p id="local-copy">BasketShipper's fictional product fixture loads and ranks in your browser.
+         BasketShipper has no search server, crawler or analytics pipeline.</p>
     </section>
 
     <section class="drawer-section">
@@ -150,8 +151,8 @@
     <section class="drawer-section">
       <h3>Assistant runtime</h3>
       <p>Running <b id="brain">fictional product search</b>. <span id="brain-detail"></span></p>
-      <p class="fine">Use GroundedRelay's local search, an available on-device model, or the
-        browser's native Site Tools agent. GroundedRelay never asks for an API key.</p>
+      <p class="fine">Use BasketShipper's local search, an available on-device model, or the
+        browser's native Site Tools agent. BasketShipper never asks for an API key.</p>
       <div id="model-download-control" class="model-download-control" hidden>
         <h4>Optional on-device model</h4>
         <p id="model-download-copy">Your browser may offer an on-device model download.</p>
@@ -175,7 +176,7 @@
               allow="tools" title="Provider diagnostics"></iframe>
     </details>
 
-    <p class="fine"><span id="rights-copy">Fictional content is GroundedRelay-owned; no partnership,
+    <p class="fine"><span id="rights-copy">Fictional content is BasketShipper-owned; no partnership,
       endorsement or real offer is represented.</span>
       Built on <a href="https://github.com/webmachinelearning/webmcp">WebMCP</a>.</p>
   </aside>
@@ -189,7 +190,7 @@
   <div class="sheet-card">
     <p id="approval-demo" class="demo-disclosure" hidden>Fictional judge demo — no real merchant or order.</p>
     <h3 id="approval-title">Review this fictional handoff?</h3>
-    <p id="approval-description" class="charge"><span id="approval-copy">GroundedRelay prepared demonstration
+    <p id="approval-description" class="charge"><span id="approval-copy">BasketShipper prepared demonstration
       links. Review the fictional basket; its currency totals are</span> <b id="approval-total"></b>.</p>
     <div id="approval-items" class="approval-items"></div>
     <p id="approval-fine" class="fine">No real merchant is contacted and no payment can be made.
@@ -205,7 +206,7 @@
         <p>Checkout is consequential, so it stops here and waits for a person.
            Cancelling rejects the in-flight tool call. Approval reveals reviewed
            links only; opening any link remains a separate human click, and no
-           purchase or payment occurs in GroundedRelay.</p>
+           purchase or payment occurs in BasketShipper.</p>
       </div>
     </details>
   </div>
@@ -217,7 +218,7 @@
     <p id="handoff-demo" class="demo-disclosure" hidden>Fictional judge demo — these are demonstration links only.</p>
     <span class="eyebrow">Approved by you</span>
     <h3 id="handoff-title">Open the fictional demo links</h3>
-    <p id="handoff-description" class="charge">These GroundedRelay-owned links demonstrate a handoff.
+    <p id="handoff-description" class="charge">These BasketShipper-owned links demonstrate a handoff.
       They cannot accept payment or create an order.</p>
     <div id="handoff-links" class="handoff-links"></div>
     <button id="handoff-close" class="ghost full-button" type="button">Done</button>
@@ -225,7 +226,7 @@
 </div>
 
 <footer class="wrap">
-  <p id="footer-copy">This public demo uses GroundedRelay-owned fictional data. It cannot contact a
+  <p id="footer-copy">This public demo uses BasketShipper-owned fictional data. It cannot contact a
      merchant, create an order or accept payment.</p>
 </footer>
 <script type="module" src="./store.js"></script>

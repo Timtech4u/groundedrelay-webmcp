@@ -8,13 +8,13 @@ Provider: `http://localhost:5174`
 Browser: **Chrome 151.0.7922.174**, DevTools protocol 1.3
 
 > **Evidence status:** **42 of 42 passed on the prior local fixture tree.** The
-> GroundedRelay rename and runtime reduction happened after this capture, so it
+> BasketShipper rename and runtime reduction happened after this capture, so it
 > is historical native proof, not current-tree or production proof. The final
 > local tree and HTTPS deployment need the same
 > `--scenario=fictional` run against `groundedrelay.pages.dev` and
 > `groundedrelay-merchant.pages.dev`.
 
-The measured build proved the full GroundedRelay-owned fictional story through native
+The measured build proved the full BasketShipper-owned fictional story through native
 `document.modelContext`: nine provider actions were discovered cross-origin,
 proxied under clean names, executed, and reflected in the independent host UI.
 The journey searched `fictional` with `ships_to=RW`, selected Nyota Road Running
@@ -34,7 +34,7 @@ startup delay.
 
 Both human outcomes passed. Veto held safe focus, rejected the in-flight call,
 and retained both basket lines. Approval returned link-ready prose, rendered
-two exact GroundedRelay-owned demo links, and did not navigate or open a page. The
+two exact BasketShipper-owned demo links, and did not navigate or open a page. The
 probe associated each product with its own labelled exact variant, then removed
 both device-local lines and observed checkout retraction.
 
@@ -82,7 +82,7 @@ Browser: **Chrome 151.0.7922.174**, DevTools protocol 1.3
 
 > **Evidence status:** historical pre-rights-safe production baseline. The
 > measured deployment used a historical external-catalogue candidate. The final
-> submission is moving to GroundedRelay-owned fictional data; replace this result with
+> submission is moving to BasketShipper-owned fictional data; replace this result with
 > a fresh `--scenario=fictional` run after that build is deployed.
 
 ### Verdict
@@ -122,16 +122,16 @@ from a `hidden` property.
 
 Cloudflare's [Browser Run WebMCP lab](https://developers.cloudflare.com/browser-run/features/webmcp/)
 is a useful independent production verifier after all three HTTPS origins are
-deployed. It runs the same deterministic GroundedRelay probe in Cloudflare's
+deployed. It runs the same deterministic BasketShipper probe in Cloudflare's
 experimental Chrome pool, supports native tool discovery/execution and
 human-in-the-loop surfaces, and avoids treating a local compatibility browser
 as the only native evidence.
 
 Do **not** enable Cloudflare's separate automatic WebMCP bridge on the submitted
-origins. GroundedRelay already registers its own state-aware tools; an injected
+origins. BasketShipper already registers its own state-aware tools; an injected
 tool pack would create a second implementation surface, risk duplicate or
 irrelevant tools, and make the submission harder to evaluate. Browser Run is
-the verifier here, not the source of GroundedRelay's tools.
+the verifier here, not the source of BasketShipper's tools.
 
 After explicit Cloudflare authorization and the exact-commit deployment:
 

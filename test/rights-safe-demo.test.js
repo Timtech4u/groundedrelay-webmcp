@@ -9,12 +9,12 @@ import {
 
 const read = (path) => readFile(new URL(path, import.meta.url), "utf8");
 
-test("rights-safe catalogue is GroundedRelay-owned, fictional, and complete without network data", async () => {
+test("rights-safe catalogue is BasketShipper-owned, fictional, and complete without network data", async () => {
   const backend = createRightsSafeBackend({ merchantOrigin: "http://localhost:5175/" });
-  assert.match(backend.label, /GroundedRelay-owned fictional demo/);
+  assert.match(backend.label, /BasketShipper-owned fictional demo/);
   assert.equal(RIGHTS_SAFE_MERCHANTS.length, 3);
   assert.ok(RIGHTS_SAFE_MERCHANTS.every((merchant) =>
-    merchant.name.startsWith("GroundedRelay Demo — ")));
+    merchant.name.startsWith("BasketShipper Demo — ")));
   assert.deepEqual(Object.entries(backend.capabilities)
     .filter(([, enabled]) => enabled).map(([name]) => name).sort(), [
     "add", "checkout", "compare", "focus", "highlight", "inspect",
@@ -27,9 +27,9 @@ test("rights-safe catalogue is GroundedRelay-owned, fictional, and complete with
   assert.equal(products.length, 6);
   assert.ok(products.every((product) => product.image === null));
   assert.ok(products.every((product) => new URL(product.url).origin === "http://localhost:5175"));
-  assert.ok(products.every((product) => product.store.startsWith("GroundedRelay Demo — ")));
+  assert.ok(products.every((product) => product.store.startsWith("BasketShipper Demo — ")));
   assert.deepEqual(backend.state().fixture,
-    { rightsSafe: true, fictional: true, owner: "GroundedRelay" });
+    { rightsSafe: true, fictional: true, owner: "BasketShipper" });
 
   const nyota = products.find((product) => product.name === "Nyota Road Running Shoe");
   assert.ok(nyota);
@@ -38,7 +38,7 @@ test("rights-safe catalogue is GroundedRelay-owned, fictional, and complete with
   assert.equal(nyota.selectedVariant.title, "EU 39");
 });
 
-test("production fixture handoffs stay on the exact GroundedRelay-owned merchant host", async () => {
+test("production fixture handoffs stay on the exact BasketShipper-owned merchant host", async () => {
   const backend = createRightsSafeBackend();
   const results = await backend.search({ query: "running shoes" });
   backend.setQuantity(results.results[0].sku, 1, backend.state().revision);
@@ -152,7 +152,7 @@ test("independent host preserves the cross-origin and state-aware WebMCP contrac
   const html = await read("../sites/merchant-demo/index.html");
   const client = await read("../sites/merchant-demo/client.js");
   const server = await read("../server.js");
-  assert.match(html, /GroundedRelay-owned judge sandbox/);
+  assert.match(html, /BasketShipper-owned judge sandbox/);
   assert.match(html, /allow="tools"/);
   assert.match(html, /id="handoff"[\s\S]+aria-describedby="handoff-note"/);
   assert.match(html, /id="handoff-note"[\s\S]+No order or payment was created,[\s\S]+nothing opened automatically/);

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Neighbourhood Market — GroundedRelay provider portability demo</title>
+<title>Neighbourhood Market — BasketShipper provider portability demo</title>
 <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -13,12 +13,12 @@
   </header>
   <main>
     <section class="hero">
-      <p class="eyebrow">Independent host proof · GroundedRelay-owned judge sandbox</p>
+      <p class="eyebrow">Independent host proof · BasketShipper-owned judge sandbox</p>
       <h1>One provider.<br>Another storefront.</h1>
       <p>This page implements no shopping actions. A static provider on another
          origin lends them through WebMCP and keeps every result visible here.</p>
       <div class="notice"><strong>Fictional demo data.</strong> Every merchant,
-        product, variant and price on this page was created by GroundedRelay. Nothing
+        product, variant and price on this page was created by BasketShipper. Nothing
         shown here is a real offer or endorsement.</div>
       <div id="handoff-ack" class="notice" hidden role="status" aria-live="polite"></div>
     </section>
@@ -48,7 +48,7 @@
            aria-atomic="true"></p>
         <div id="basket"><p>Nothing selected yet.</p></div>
         <button id="review" class="primary" type="button" disabled>Review handoff</button>
-        <p class="fine">Approval only reveals GroundedRelay-owned demo links. It never purchases or navigates.</p>
+        <p class="fine">Approval only reveals BasketShipper-owned demo links. It never purchases or navigates.</p>
       </aside>
     </div>
 
@@ -60,7 +60,7 @@
       <p id="provider-copy">Waiting for the provider handshake.</p>
       <ol id="tools"></ol>
       <iframe id="provider" data-origin="https://groundedrelay-provider.pages.dev"
-              allow="tools" title="GroundedRelay provider diagnostics"></iframe>
+              allow="tools" title="BasketShipper provider diagnostics"></iframe>
     </details>
   </main>
 
@@ -82,7 +82,7 @@
       <p class="eyebrow">Automation stopped</p>
       <h2 id="handoff-title">Demo links are ready</h2>
       <div id="handoff-links"></div>
-      <p id="handoff-note">These links are GroundedRelay-owned fictional demos. No order or payment was created, and nothing opened automatically.</p>
+      <p id="handoff-note">These links are BasketShipper-owned fictional demos. No order or payment was created, and nothing opened automatically.</p>
       <button id="close-handoff" type="button">Done</button>
     </div>
   </div>

@@ -25,7 +25,7 @@ test("approved fixture handoff exposes exactly one owned link per merchant", asy
   assert.deepEqual(
     uniqueApprovedMerchantLinks(duplicated, "http://localhost:5175"),
     [{
-      store: "GroundedRelay Demo — Rift Runworks",
+      store: "BasketShipper Demo — Rift Runworks",
       url: "http://localhost:5175/#handoff=groundedrelay-demo-rift-runworks",
     }],
     "the host defensively deduplicates an older provider response too",
@@ -34,7 +34,7 @@ test("approved fixture handoff exposes exactly one owned link per merchant", asy
 
 test("fictional handoff hashes acknowledge known stores and ignore everything else", async () => {
   assert.equal(handoffStoreFromHash("#handoff=groundedrelay-demo-kigali-pantry"),
-    "GroundedRelay Demo — Kigali Pantry");
+    "BasketShipper Demo — Kigali Pantry");
   assert.equal(handoffStoreFromHash("#handoff=unknown"), null);
   assert.equal(handoffStoreFromHash("#handoff=groundedrelay-demo-kigali-pantry&extra=1"), null);
   assert.equal(handoffStoreFromHash("#product=family-egg-tray"), null);
@@ -52,7 +52,7 @@ test("fictional handoff hashes acknowledge known stores and ignore everything el
 
 test("unowned or mismatched handoff links are discarded", () => {
   const handoff = [{
-    store: "GroundedRelay Demo — Kigali Pantry",
+    store: "BasketShipper Demo — Kigali Pantry",
     items: [
       { url: "https://attacker.example/#handoff=groundedrelay-demo-kigali-pantry" },
       { url: "http://localhost:5175/#handoff=groundedrelay-demo-rift-runworks" },

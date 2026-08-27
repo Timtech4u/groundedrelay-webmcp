@@ -111,17 +111,17 @@ test("basket totals remain separate when currencies differ", () => {
 test("comparison contains only constrained observed fields", () => {
   const items = [
     {
-      sku: "eggs|1", name: "Family Egg Tray", store: "GroundedRelay Demo — Kigali Pantry",
+      sku: "eggs|1", name: "Family Egg Tray", store: "BasketShipper Demo — Kigali Pantry",
       url: "https://merchant.example/#eggs", merchantCountry: "Rwanda", market: "RW",
-      shipsTo: ["RW"], vendor: "GroundedRelay Demo — Kigali Pantry", productType: "Eggs",
+      shipsTo: ["RW"], vendor: "BasketShipper Demo — Kigali Pantry", productType: "Eggs",
       selectedVariant: { title: "Tray of 30" }, available: true,
       currency: "RWF", price: 7_200,
     },
     {
       sku: "shoe|2", name: "Nyota Road Running Shoe",
-      store: "GroundedRelay Demo — Rift Runworks", url: "https://merchant.example/#shoe",
+      store: "BasketShipper Demo — Rift Runworks", url: "https://merchant.example/#shoe",
       merchantCountry: "Kenya", market: "KE", shipsTo: ["KE", "RW"],
-      vendor: "GroundedRelay Demo — Rift Runworks", productType: "Running shoes",
+      vendor: "BasketShipper Demo — Rift Runworks", productType: "Running shoes",
       selectedVariant: { title: "EU 40", options: ["Colour: Indigo"] }, available: true,
       currency: "KES", price: 1_480_000,
     },

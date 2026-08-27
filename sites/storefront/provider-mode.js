@@ -13,7 +13,7 @@ export function attestsFictionalMode(message, { state = false } = {}) {
   if (!state) return message.protocol === 2;
   return message.fixture?.rightsSafe === true
     && message.fixture?.fictional === true
-    && message.fixture?.owner === "GroundedRelay";
+    && message.fixture?.owner === "BasketShipper";
 }
 
 // Copy and data must agree. The server-rendered shell starts in the owned

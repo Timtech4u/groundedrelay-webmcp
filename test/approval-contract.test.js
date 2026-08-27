@@ -25,7 +25,7 @@ test("approval snapshot carries an immutable exact variant", () => {
   const [snapshot] = approvalCartSnapshot([{
     sku: "shoe:40",
     name: "Nyota Road Running Shoe",
-    store: "GroundedRelay Demo — Rift Runworks",
+    store: "BasketShipper Demo — Rift Runworks",
     host: "groundedrelay-merchant.pages.dev",
     qty: 1,
     currency: "KES",
@@ -35,7 +35,7 @@ test("approval snapshot carries an immutable exact variant", () => {
   assert.deepEqual(snapshot, {
     sku: "shoe:40",
     name: "Nyota Road Running Shoe",
-    store: "GroundedRelay Demo — Rift Runworks",
+    store: "BasketShipper Demo — Rift Runworks",
     host: "groundedrelay-merchant.pages.dev",
     qty: 1,
     currency: "KES",
@@ -53,7 +53,7 @@ test("both human approval modals visibly render the escaped exact variant", asyn
   assert.match(independentHost, /approvalVariantText\(item\.selectedVariant\)/);
   assert.match(independentHost, /esc\(variantText\)/);
   assert.match(html, /Approval reveals reviewed\s+links only/);
-  assert.match(html, /no\s+purchase or payment occurs in GroundedRelay/);
+  assert.match(html, /no\s+purchase or payment occurs in BasketShipper/);
   assert.doesNotMatch(html, /approval opens the relevant merchant pages/);
 });
 

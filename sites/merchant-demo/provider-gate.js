@@ -3,12 +3,12 @@ const attestsFictional = (message, state) => {
   if (!state) return message.protocol === 2;
   return message.fixture?.rightsSafe === true
     && message.fixture?.fictional === true
-    && message.fixture?.owner === "GroundedRelay";
+    && message.fixture?.owner === "BasketShipper";
 };
 
 // The independent host is exclusively a fictional portability proof. It may
 // receive ready/state in either order, but trusts neither until both attest the
-// same GroundedRelay-owned mode. A mismatch is permanent for the page load.
+// same BasketShipper-owned mode. A mismatch is permanent for the page load.
 export function createMerchantProviderGate() {
   let ready = false;
   let state = false;

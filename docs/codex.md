@@ -1,6 +1,6 @@
-# Using GroundedRelay with Codex and ChatGPT
+# Using BasketShipper with Codex and ChatGPT
 
-GroundedRelay is designed for an agent-capable in-app browser. The page remains useful
+BasketShipper is designed for an agent-capable in-app browser. The page remains useful
 without WebMCP, but the hackathon proof is an external agent discovering nine
 actions that a separate provider origin lends to the storefront.
 
@@ -11,7 +11,7 @@ npm start
 ```
 
 Open `http://localhost:5173/` in the **Codex in-app browser** for the local
-fixture-only storefront, or `http://localhost:5175/` for the GroundedRelay-owned
+fixture-only storefront, or `http://localhost:5175/` for the BasketShipper-owned
 fictional portability demo. Root is the sole mode and query overrides are
 ignored. The command does not launch Chrome. It starts the storefront on
 `5173`, provider on `5174`, independent host on `5175`, and hot reload for all
@@ -26,7 +26,7 @@ Useful **rights-safe rehearsal** prompts:
 - “Read my basket, set the exact fictional variants, then prepare the demo
   handoff and wait.”
 
-The last prompt must stop at GroundedRelay's visible Approve/Veto dialog. Approval only
+The last prompt must stop at BasketShipper's visible Approve/Veto dialog. Approval only
 prepares explicit merchant-page handoffs; it is not proof of payment or order
 completion.
 
@@ -72,7 +72,7 @@ The canonical public production prompt is:
 > to one Nyota EU 40 and one Asa Indigo, keep KES and GHS separate, then prepare
 > the fictional handoff and wait.
 
-Public HTTPS always uses the GroundedRelay-owned fictional fixture. The final
+Public HTTPS always uses the BasketShipper-owned fictional fixture. The final
 call must stop at the visible Approve/Veto surface.
 
 ## Acceptance checks

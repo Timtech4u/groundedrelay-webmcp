@@ -1,9 +1,9 @@
 ---
 name: cloudflare-pages-deploy
-description: Deploy or verify GroundedRelay's three static Cloudflare Pages origins from the clean public repository while preserving the fixture-only data boundary, pinned cross-origin provider, exact release commit, and human-gated handoff.
+description: Deploy or verify BasketShipper's three static Cloudflare Pages origins from the clean public repository while preserving the fixture-only data boundary, pinned cross-origin provider, exact release commit, and human-gated handoff.
 ---
 
-# Deploy GroundedRelay to Cloudflare Pages
+# Deploy BasketShipper to Cloudflare Pages
 
 Read `AGENTS.md`, `README.md`, `docs/AFRICA-FIRST.md`, and
 `docs/CLOUDFLARE-DEPLOYMENT-HANDOFF.md` before changing release wiring. The
@@ -25,7 +25,7 @@ proxy, database, analytics call, model-key store, payment service, server-side
 search, or external catalogue. The separate provider origin and two allowed host
 origins are the cross-origin capability-lending and portability proof.
 
-Every public and local run uses the GroundedRelay-owned fictional fixture. The
+Every public and local run uses the BasketShipper-owned fictional fixture. The
 root page is the sole runtime, and URL parameters cannot select another provider
 or data source. Both hosts pin the provider in `data-origin`.
 
@@ -81,7 +81,7 @@ script, tests, and documentation.
   or portability origin, or an explicitly supported loopback development host.
 - Every provider message is bound to exact origin, source window, protocol
   version, and per-page channel nonce.
-- Both hosts require paired protocol-2 `ready` and GroundedRelay-owned fictional
+- Both hosts require paired protocol-2 `ready` and BasketShipper-owned fictional
   `state` attestations; a mismatch fails closed.
 - Provider `frame-ancestors` is exactly `https://groundedrelay.pages.dev` and
   `https://groundedrelay-merchant.pages.dev` in production.
@@ -110,7 +110,7 @@ After the signed-out and rendered checks pass, use
 in a short-lived Cloudflare Browser Run `--lab` session. The wrapper keeps its
 WebSocket endpoint in process memory and closes the session. It requires the
 same explicitly authorized Wrangler account. Keep Cloudflare's automatic
-edge-injected WebMCP bridge disabled on every submitted origin; GroundedRelay's
+edge-injected WebMCP bridge disabled on every submitted origin; BasketShipper's
 hand-written state-aware tools are the implementation being judged.
 
 Approval may reveal only reviewed links on

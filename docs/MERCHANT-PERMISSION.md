@@ -5,7 +5,7 @@ Last reviewed: 26 August 2026
 ## Current decision
 
 ```text
-Public submission mode: GroundedRelay-owned fictional fixture
+Public submission mode: BasketShipper-owned fictional fixture
 Merchant outreach: DO NOT SEND
 Real merchant use in public app/media: none
 Written merchant permission required for rights-safe submission: no
@@ -17,7 +17,7 @@ draft, send, copy, schedule, or imply outreach on the user's behalf unless the
 user later gives a new explicit instruction.
 
 The public app, repository story, screenshots, video, blog, and Devpost entry
-use GroundedRelay-owned fictional names, products, fields, prices, and demonstration
+use BasketShipper-owned fictional names, products, fields, prices, and demonstration
 links. No real merchant name, logo, catalogue item, image, quote, website
 screenshot, or handoff URL belongs in submission media. Because the public path
 does not publish a real merchant, written merchant permission is **not** a
@@ -27,10 +27,10 @@ This is a product and release boundary, not a legal opinion. The owned fixture
 still requires the final naming and terms checks in
 [`SUBMISSION-CHECKLIST.md`](SUBMISSION-CHECKLIST.md).
 
-Exact web, npm, PyPI, GitHub repository-name, and
-`.com`/`.dev`/`.app`/`.io` DNS screens on 2026-08-26 found no direct
-GroundedRelay software or product match. This is a preliminary collision screen,
-not legal advice or trademark clearance.
+An exact web, npm, PyPI, GitHub repository-name, and
+`.com`/`.dev`/`.app`/`.io` DNS screen on 27 August 2026 found no direct exact
+BasketShipper software or product match. This is preliminary collision evidence,
+not legal advice, a comprehensive rights search, or trademark clearance.
 
 ## Retired private history
 

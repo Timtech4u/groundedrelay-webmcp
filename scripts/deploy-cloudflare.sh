@@ -18,7 +18,7 @@ origin_url="$(git remote get-url origin 2>/dev/null || true)"
 case "$origin_url" in
   https://github.com/Timtech4u/groundedrelay-webmcp|https://github.com/Timtech4u/groundedrelay-webmcp.git|git@github.com:Timtech4u/groundedrelay-webmcp.git|ssh://git@github.com/Timtech4u/groundedrelay-webmcp.git) ;;
   *)
-    echo "Refusing deployment: origin is not the clean public GroundedRelay repository." >&2
+    echo "Refusing deployment: origin is not the clean public BasketShipper repository." >&2
     echo "Expected github.com/Timtech4u/groundedrelay-webmcp; received ${origin_url:-no origin}." >&2
     exit 1
     ;;

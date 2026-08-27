@@ -1,4 +1,4 @@
-# GroundedRelay hackathon handoff
+# BasketShipper hackathon handoff
 
 State of play: **26 August 2026 (Africa/Kigali)**
 
@@ -19,12 +19,12 @@ local test, commit, or historical deployment is the final public result.
 | Area | Verified state | Meaning |
 | --- | --- | --- |
 | Rights-safe candidate | Clean final-only public `main` is published and synchronized | Source publication is complete; production release evidence remains separate |
-| Deterministic suite | Public `main` passes **96/96 total checks**: 95 Node tests plus eval validation, with 8 eval cases and 9 public tools | Current GroundedRelay source proof; repeat only if public `main` changes |
+| Deterministic suite | Public `main` passes **96/96 total checks**: 95 Node tests plus eval validation, with 8 eval cases and 9 public tools | Current BasketShipper source proof; repeat only if public `main` changes |
 | Publication release gate | Public `main` passes **35/35** | Sanitized one-commit tree is green; repeat after any public source update |
-| Online public-release gate | Pending the three-origin GroundedRelay deployment | Run against the exact deployed commit before submission |
-| Historical local fixture proof | **42/42** on the pre-GroundedRelay fixture candidate at 20:41 UTC | Rerun the final GroundedRelay tree; direct API proof is not model selection or production evidence |
+| Online public-release gate | Pending the three-origin BasketShipper deployment | Run against the exact deployed commit before submission |
+| Historical local fixture proof | **42/42** on the pre-BasketShipper fixture candidate at 20:41 UTC | Rerun the final BasketShipper tree; direct API proof is not model selection or production evidence |
 | Historical production WebMCP proof | 32/32 on the old pre-fixture deployment | Useful baseline only; must be replaced for submission |
-| Current public deployment | GroundedRelay targets are not deployed or verified | Retired external-catalogue work is private history, not submission production |
+| Current public deployment | BasketShipper targets are not deployed or verified | Retired external-catalogue work is private history, not submission production |
 | Independent public host | Source exists; target is not deployed or verified | `groundedrelay-merchant.pages.dev` is required before final proof |
 | GitHub | `Timtech4u/groundedrelay-webmcp` is public; the release checkout must keep local `main == origin/main` | Signed-out repository and raw README return 200; MIT is detected; read the current SHA from Git rather than freezing a soon-stale HEAD in this file |
 | Video/screenshots | Three historical local native states and a short evidence clip exist; public narrated YouTube video is absent | Rebranded production captures and the public video remain blockers |
@@ -45,7 +45,7 @@ git log --reverse --format='%h %ad %s' --date=iso-strict
 
 ## Product and judge story
 
-The submission product is **GroundedRelay**; Africa is catalogue scope, not part
+The submission product is **BasketShipper**; Africa is catalogue scope, not part
 of the name.
 
 One static provider lends typed WebMCP shopping capabilities across an origin
@@ -58,17 +58,17 @@ The public submission uses only this owned fixture:
 
 | Fictional catalogue | Demo market | Currency |
 | --- | --- | --- |
-| GroundedRelay Demo — Kigali Pantry | RW | RWF |
-| GroundedRelay Demo — Rift Runworks | KE | KES |
-| GroundedRelay Demo — Accra Carry Studio | GH | GHS |
+| BasketShipper Demo — Kigali Pantry | RW | RWF |
+| BasketShipper Demo — Rift Runworks | KE | KES |
+| BasketShipper Demo — Accra Carry Studio | GH | GHS |
 
 The six invented products use no third-party imagery. The carryall was renamed
 after an initial exact-name collision check; the current fixture name is
 **Cocoa Grid Carryall**. The source labels every catalogue, product, price,
-availability value, and link as a GroundedRelay-owned fictional example. Exact
-web, npm, PyPI, GitHub repository-name, and `.com`, `.dev`, `.app`, and `.io`
-DNS screens on 2026-08-26 found no direct GroundedRelay software or product
-match. This is only a preliminary collision screen, not legal or trademark
+availability value, and link as a BasketShipper-owned fictional example. An
+exact web, npm, PyPI, GitHub repository-name, and `.com`, `.dev`, `.app`, and
+`.io` DNS screen on 27 August 2026 found no direct exact BasketShipper software
+or product match. This is preliminary collision evidence, not trademark
 clearance; the final platform-terms review remains a release gate.
 
 The tracked submission and runtime are fixture-only. The deleted
@@ -212,9 +212,9 @@ describe the 32/32 or 42/42 direct run as native-agent prompt reliability.
 
 Earlier external-catalogue work is retired private history. Its private commit
 identifiers and merchant evidence do not belong in the clean public repository,
-and an old smoke test is not proof that GroundedRelay is deployed.
+and an old smoke test is not proof that BasketShipper is deployed.
 
-GroundedRelay source publication and exact-tree gates are complete. Before
+BasketShipper source publication and exact-tree gates are complete. Before
 deployment, confirm:
 
 - the deployment artifact matches refreshed public `origin/main`;
@@ -279,7 +279,7 @@ or trademark clearance.
 
 ## Ordered next-agent plan
 
-GroundedRelay public source is synchronized and passes both deterministic and
+BasketShipper public source is synchronized and passes both deterministic and
 publication gates. Deployment and judge runs remain pending. GitHub Actions may
 be run manually as extra evidence, but a
 green Actions run is not a release requirement.
@@ -296,7 +296,7 @@ green Actions run is not a release requirement.
    API evidence.
 6. Capture production S1–S8, record the <3-minute audio demo, upload it publicly, and test
    every URL signed out.
-7. Record the preliminary GroundedRelay collision screen, complete the remaining
+7. Record the preliminary BasketShipper collision screen, complete the remaining
    platform-terms review, and finish the P0 checklist; do not represent the
    name search as legal or trademark clearance.
 8. Only then paste the prepared copy into Devpost, preview it, submit, and save

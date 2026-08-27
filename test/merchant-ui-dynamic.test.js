@@ -156,7 +156,7 @@ const product = (id, name, variants) => ({
   productId: id,
   sku: variants[0].sku,
   name,
-  store: "GroundedRelay Demo — Rift Runworks",
+  store: "BasketShipper Demo — Rift Runworks",
   merchantCountry: "Kenya",
   price: variants[0].price,
   currency: variants[0].currency,
@@ -217,12 +217,12 @@ test("merchant runtime gates readiness, invalidates evidence, and preserves focu
     const catalogue = [shoes, bag];
     const baseState = {
       type: "embed:state", dataMode: "fictional", fictional: true,
-      fixture: { rightsSafe: true, fictional: true, owner: "GroundedRelay" },
+      fixture: { rightsSafe: true, fictional: true, owner: "BasketShipper" },
       catalog: catalogue, cart: [], totals: [], revision: 1, comparison: null,
     };
     send({
       type: "embed:ready", protocol: 2, dataMode: "fictional", fictional: true,
-      backend: "GroundedRelay-owned fixture", tools: [], capabilities: { checkout: true },
+      backend: "BasketShipper-owned fixture", tools: [], capabilities: { checkout: true },
     });
     assert.equal(query.disabled, true, "ready alone must not unlock search");
     send(baseState);
@@ -312,7 +312,7 @@ test("merchant runtime gates readiness, invalidates evidence, and preserves focu
     send({
       type: "embed:handoff", requestId,
       handoff: [{
-        store: "GroundedRelay Demo — Rift Runworks",
+        store: "BasketShipper Demo — Rift Runworks",
         items: [{ url: "http://localhost:5175/#handoff=groundedrelay-demo-rift-runworks" }],
       }],
     });

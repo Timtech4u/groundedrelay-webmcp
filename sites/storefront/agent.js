@@ -4,7 +4,7 @@
 // touch our servers. There is no backend and no proxy — there is nothing of
 // ours between the shopper and the browser runtime:
 //
-//   on-device  the browser's Prompt API. GroundedRelay has no model backend and does
+//   on-device  the browser's Prompt API. BasketShipper has no model backend and does
 //              not receive prompts; browser/vendor telemetry is outside the
 //              guarantees this static page can make.
 //   fallback   deterministic local catalogue search when no model is available.
@@ -80,7 +80,7 @@ const runTool = (tool, args, signal) =>
 const OnDevice = {
   id: "on-device",
   label: "on your device",
-  detail: "This browser's on-device model. GroundedRelay has no model backend and does not receive your prompt.",
+  detail: "This browser's on-device model. BasketShipper has no model backend and does not receive your prompt.",
   session: null,
 
   async available() {
@@ -385,7 +385,7 @@ function renderModelDownloadControl(state = modelAvailability, phase = modelDown
   button.disabled = ["starting", "downloading"].includes(phase);
 
   if (plan === "installed") {
-    copy.textContent = "The browser model is already installed, so GroundedRelay can use it without a download prompt.";
+    copy.textContent = "The browser model is already installed, so BasketShipper can use it without a download prompt.";
     status.textContent = "No download permission was needed.";
     return;
   }
@@ -399,7 +399,7 @@ function renderModelDownloadControl(state = modelAvailability, phase = modelDown
     button.textContent = "Browser model downloading…";
   } else if (phase === "ready") {
     status.textContent =
-      "The browser model is ready. Reload GroundedRelay or return later to use it; local search remains active now.";
+      "The browser model is ready. Reload BasketShipper or return later to use it; local search remains active now.";
   } else if (phase === "failed") {
     button.textContent = "Retry on-device model download";
     status.textContent =
@@ -407,8 +407,8 @@ function renderModelDownloadControl(state = modelAvailability, phase = modelDown
   } else {
     button.textContent = "Allow on-device model download";
     status.textContent = consent
-      ? "Permission is saved. GroundedRelay will resume the browser download on this or a later visit."
-      : "Not allowed yet. GroundedRelay will not start a model download unless you choose the button above.";
+      ? "Permission is saved. BasketShipper will resume the browser download on this or a later visit."
+      : "Not allowed yet. BasketShipper will not start a model download unless you choose the button above.";
   }
 }
 
@@ -445,7 +445,7 @@ function bindModelDownloadControls() {
   button.addEventListener("click", () => {
     if (!setModelDownloadConsent(true)) {
       $("model-download-status").textContent =
-        "This browser could not save permission, so GroundedRelay did not start the download.";
+        "This browser could not save permission, so BasketShipper did not start the download.";
       return;
     }
     beginConsentedModelDownload();

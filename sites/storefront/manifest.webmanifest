@@ -1,6 +1,6 @@
 {
-  "name": "GroundedRelay — evidence-led agent shopping",
-  "short_name": "GroundedRelay",
+  "name": "BasketShipper — evidence-led agent shopping",
+  "short_name": "BasketShipper",
   "description": "Search and compare fictional African catalogues with cross-origin WebMCP tools and a human-controlled handoff.",
   "start_url": "./",
   "display": "standalone",

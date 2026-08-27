@@ -1,4 +1,4 @@
-# GroundedRelay — Devpost submission copy
+# BasketShipper — Devpost submission copy
 
 Status: **copy-ready, not submitted**
 
@@ -9,16 +9,16 @@ Do not paste this into Devpost until every required gate in
 [`SUBMISSION-CHECKLIST.md`](SUBMISSION-CHECKLIST.md) is green. In particular,
 the live native WebMCP journey must be captured, the final rights-safe build
 must be deployed, and the public narrated YouTube video must exist.
-The submitted experience uses only GroundedRelay-owned fictional merchants, products,
+The submitted experience uses only BasketShipper-owned fictional merchants, products,
 prices, and handoff links.
 
 ## Submission identity
 
-**Project name:** GroundedRelay
+**Project name:** BasketShipper
 
 **Tagline:** Shop with an agent, inspect its evidence, and keep the final say.
 
-**One-sentence description:** GroundedRelay is a static, cross-origin WebMCP shopping
+**One-sentence description:** BasketShipper is a static, cross-origin WebMCP shopping
 experience where a person and an agent share catalogue results, comparisons,
 exact variants, basket state, and a human-gated merchant handoff.
 
@@ -31,18 +31,19 @@ agent-ready interface without replacing their storefront or checkout.
 **Public repository:**
 <https://github.com/Timtech4u/groundedrelay-webmcp>
 
-The clean final-only GroundedRelay repository is public, opens signed out, and
+The clean final-only BasketShipper repository is public, opens signed out, and
 shows its MIT license. Its local `main` matches `origin/main`. The existing
 development repository remains private and is not the submission repository.
 
-A preliminary screen on 2026-08-26 checked exact web results, npm, PyPI,
-GitHub repository names, and `.com`, `.dev`, `.app`, and `.io` DNS for
-**GroundedRelay** and found no direct software or product match. This is not
-legal advice or trademark clearance.
+An exact web, npm, PyPI, GitHub repository-name, and `.com`, `.dev`, `.app`,
+and `.io` DNS screen on 27 August 2026 found no direct exact
+**BasketShipper** software or product match. This is preliminary collision
+evidence, not legal advice, a comprehensive rights search, or trademark
+clearance.
 
 ## Build timeline and challenge eligibility
 
-GroundedRelay's source work began on 26 August 2026; the challenge build window
+BasketShipper's source work began on 26 August 2026; the challenge build window
 opened on 25 August. Its clean, final-only public repository has only
 challenge-period commits inside that window and no inherited private history,
 personal metadata, local settings, or named merchant research. Judges can verify
@@ -65,7 +66,7 @@ only published facts, update the same basket the shopper can edit, and stop when
 the decision becomes consequential. Screen automation has to guess at controls;
 a detached chatbot cannot reliably see a human's latest change.
 
-WebMCP gives GroundedRelay narrow, typed actions attached to the live page. The agent
+WebMCP gives BasketShipper narrow, typed actions attached to the live page. The agent
 acts on the same results, comparison, and basket the person sees. Read-only and
 mutating operations are distinguishable, catalogue content is marked untrusted,
 and the final handoff parks for explicit approval or veto. This is a strong fit
@@ -74,7 +75,7 @@ without taking the commercial decision away from the shopper.
 
 ## Required question 2 — How does it create a better user experience?
 
-GroundedRelay turns agent work into visible interface state. Search results render as
+BasketShipper turns agent work into visible interface state. Search results render as
 product cards; comparisons use constrained catalogue fields; supporting rows
 can be highlighted; exact variant availability is inspectable; and basket
 changes appear immediately. The person can correct the basket directly, after
@@ -83,9 +84,9 @@ which the agent must read the new revision before changing it again.
 The experience also fails honestly. Exact variants can be inspected before a
 mutation, currencies use integer minor units and ISO codes, and KES, GHS, and
 RWF totals are never combined. The public demo labels every catalogue, product,
-price, and link as a GroundedRelay-owned fictional example. If the browser lacks the
+price, and link as a BasketShipper-owned fictional example. If the browser lacks the
 WebMCP page API, the same search, comparison, basket, and handoff controls remain
-usable. At handoff, GroundedRelay shows the reviewed items and destination host,
+usable. At handoff, BasketShipper shows the reviewed items and destination host,
 focuses the safe cancel choice first, and never navigates or pays automatically.
 
 ## Required question 3 — What can people and agents do together that was difficult or impossible before?
@@ -101,7 +102,7 @@ newer human choice.
 When asked to continue, the agent can prepare—but not complete—a handoff. In the
 public fixture, the tool call remains pending while the shopper reviews the
 exact fictional basket. A veto rejects the in-flight action and preserves the
-basket; approval only reveals an explicit GroundedRelay-owned fictional link on
+basket; approval only reveals an explicit BasketShipper-owned fictional link on
 `groundedrelay-merchant.pages.dev`. The
 collaboration is therefore recoverable and inspectable instead of being a choice
 between doing everything manually and giving an autonomous agent unchecked
@@ -109,7 +110,7 @@ control.
 
 ## Required question 4 — How did you implement WebMCP?
 
-GroundedRelay uses three static Cloudflare Pages origins: one provider reused by the
+BasketShipper uses three static Cloudflare Pages origins: one provider reused by the
 primary storefront and an independent merchant-demo host. Each host embeds the
 separately deployed provider with `allow="tools"`. The provider registers
 bounded WebMCP actions under collision-safe `wire__*` names; a host discovers
@@ -125,12 +126,12 @@ runtime accepts JSON text at `executeTool()` even though a registered action
 receives a parsed object.
 
 Every provider message verifies the allowed origin, source window, protocol
-version, and a per-page channel nonce. Public HTTPS defaults to a GroundedRelay-owned
+version, and a per-page channel nonce. Public HTTPS defaults to a BasketShipper-owned
 fictional fixture with three African demo catalogues and six products; public
 query parameters cannot select another backend. The fixture is searched locally
 and uses demo-only links on `groundedrelay-merchant.pages.dev`. The project has no
 application server, proxy, analytics service, model key, or shared search index.
-GroundedRelay carries exact variants, integer minor units and ISO currencies, uses
+BasketShipper carries exact variants, integer minor units and ISO currencies, uses
 revision-safe basket mutations, and binds the approval sheet to an immutable
 handoff ID and basket revision.
 
@@ -166,7 +167,7 @@ await document.modelContext.registerTool({
 Shopping agents are good at conversation. The harder problem is shared,
 trustworthy state.
 
-GroundedRelay lets a static provider on one origin lend shopping actions to a
+BasketShipper lets a static provider on one origin lend shopping actions to a
 storefront on another. A person and an agent work in the same visible search,
 comparison, and basket. The agent does not return an invisible recommendation:
 it can focus exact products, render a comparison from observed catalogue
@@ -176,13 +177,13 @@ The commerce details are deliberately strict. The public fixture has explicit
 demo markets, delivery coverage, variants, availability, and three currencies.
 Money uses integer minor units plus ISO currency, and unlike currencies are
 never collapsed into an invented total. Search ranking happens in the browser.
-Because the public catalogue and demonstration links are static GroundedRelay-owned
+Because the public catalogue and demonstration links are static BasketShipper-owned
 data, the submitted journey contacts no real merchant.
 
 The final action is a handoff, not autonomous checkout. It pauses on a review
 sheet bound to the current basket revision. The person can approve or veto; a
 veto rejects the in-flight tool call and keeps the basket. Approval only reveals
-the fictional demo destination on `groundedrelay-merchant.pages.dev`. GroundedRelay never
+the fictional demo destination on `groundedrelay-merchant.pages.dev`. BasketShipper never
 enters payment details, opens a link automatically, or claims an order was placed.
 
 The result is a reusable WebMCP pattern for a more open agentic web: structured
@@ -193,7 +194,7 @@ authority stay with the person using the page.
 
 - WebMCP page API: `registerTool`, `getTools`, `executeTool`, and `toolchange`
 - HTML, CSS, and modern browser JavaScript
-- GroundedRelay-owned fictional catalogue fixture for the public judge experience
+- BasketShipper-owned fictional catalogue fixture for the public judge experience
 - Cloudflare Pages on three static HTTPS origins
 - Node's built-in test runner
 - Service worker with network-first shell updates
@@ -228,7 +229,7 @@ The exact recording prompts and fallback-free capture sequence are in
 
 ## Claim guardrails
 
-- Call the public catalogues **GroundedRelay-owned fictional demos**, never real shops,
+- Call the public catalogues **BasketShipper-owned fictional demos**, never real shops,
   partners, offers, availability, or endorsements.
 - Approval reveals fictional demonstration links; it does not prove an order or
   payment.
